@@ -3,14 +3,14 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
+import { ppNeueMontrealMedium } from '@/app/fonts'
 
 export function TransitioningLogo() {
   const [isExpanded, setIsExpanded] = useState(true)
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY
-      setIsExpanded(scrollPosition < 100)
+      setIsExpanded(window.scrollY < 100)
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -18,7 +18,7 @@ export function TransitioningLogo() {
   }, [])
 
   return (
-    <Link href="/" className="inline-block">
+    <Link href="/" aria-label="Homepage" className="inline-block">
       <AnimatePresence initial={false}>
         {isExpanded ? (
           <motion.span
@@ -26,7 +26,8 @@ export function TransitioningLogo() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="text-[15px] font-medium text-gray-800 dark:text-white"
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className={`${ppNeueMontrealMedium.variable} font-medium text-[15px] text-gray-800 dark:text-white`}
           >
             Andrés Engler
           </motion.span>
@@ -36,7 +37,8 @@ export function TransitioningLogo() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="text-[15px] font-medium text-gray-800 dark:text-white"
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className={`${ppNeueMontrealMedium.variable} font-medium text-[15px] text-gray-800 dark:text-white`}
           >
             AE
           </motion.span>
@@ -45,4 +47,3 @@ export function TransitioningLogo() {
     </Link>
   )
 }
-
