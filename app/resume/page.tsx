@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
-import { ppNeueMontrealRegular, ppNeueMontrealMedium, departureMono } from '../app/fonts'
+import { ppNeueMontrealRegular, ppNeueMontrealMedium, departureMono } from '../fonts'
 
 const resumeData = [
   {
