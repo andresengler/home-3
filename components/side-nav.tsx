@@ -1,6 +1,7 @@
 'use client'
 
 import { departureMono } from '../app/fonts'
+
 interface SideNavProps {
   sections: string[];
   activeSection: string;
@@ -29,4 +30,3 @@ export function SideNav({ sections, activeSection, onSectionClick }: SideNavProp
     </nav>
   )
 }
-
