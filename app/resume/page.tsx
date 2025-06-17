@@ -3,23 +3,22 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
-import { ppNeueMontrealRegular, ppNeueMontrealMedium, departureMono } from '../fonts'
 
 const resumeData = [
   {
     title: 'Work Experience',
     items: [
-      { date: '9/23 - Now', company: 'Editado', role: 'Founder', description: '' },
-      { date: '6/21 - 8/23', company: 'CoinDesk', role: 'Editor of content and strategy, Latin America', description: '' },
-      { date: '1/20 - 6/21', company: 'La Nación', role: 'Features writer', description: '' },
-      { date: '9/19 - 12/21', company: 'Acuris', role: 'Correspondent in Argentina', description: '' },
-      { date: '4/14 - 8/19', company: 'El Cronista', role: 'Reporter', description: '' }
+      { date: '9/23 - Now', company: 'Editado', role: 'Founder' },
+      { date: '6/21 - 8/23', company: 'CoinDesk', role: 'Editor of content and strategy, Latin America' },
+      { date: '1/20 - 6/21', company: 'La Nación', role: 'Features writer' },
+      { date: '9/19 - 12/21', company: 'Acuris', role: 'Correspondent in Argentina' },
+      { date: '4/14 - 8/19', company: 'El Cronista', role: 'Reporter' }
     ]
   },
   {
     title: 'Education',
     items: [
-      { date: '2010 - 2014', company: 'Catholic University of Argentina', role: 'Bachelor\'s Degree in Journalism', description: null }
+      { date: '2010 - 2014', company: 'Catholic University of Argentina', role: "Bachelor's Degree in Journalism" }
     ]
   },
   {
@@ -34,7 +33,7 @@ const resumeData = [
   {
     title: 'Awards',
     items: [
-      { date: '12/15', company: 'ADEPA Journalism Prize', role: 'Special mention in Economy', description: null }
+      { date: '12/15', company: 'ADEPA Journalism Prize', role: 'Special mention in Economy' }
     ]
   },
   {
@@ -79,7 +78,7 @@ const renderSection = (section: any) => (
     className="space-y-6"
     id={section.title.toLowerCase().replace(/\s+/g, '-')}
   >
-    <h2 className={`${departureMono.variable} text-[12px] font-normal tracking-tight text-gray-400 dark:text-gray-500`}>
+    <h2 className="font-mono text-[12px] font-normal tracking-tight text-gray-400 dark:text-gray-500">
       {section.title}
     </h2>
 
@@ -95,10 +94,10 @@ const renderSection = (section: any) => (
           >
             {['spanish', 'english'].map((lang) => (
               <div key={lang}>
-                <h3 className={`${ppNeueMontrealRegular.variable} text-[15px] font-medium text-gray-800 dark:text-white`}>
+                <h3 className="font-medium text-[15px] text-gray-800 dark:text-white">
                   {item[lang].company}
                 </h3>
-                <p className={`${ppNeueMontrealRegular.variable} text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
+                <p className="text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed">
                   {item[lang].role}
                 </p>
               </div>
@@ -117,17 +116,15 @@ const renderSection = (section: any) => (
           >
             <Link href={item.href} className="group block">
               <motion.p
-                className={`${ppNeueMontrealRegular.variable} text-[15px] leading-snug`}
+                className="text-[15px] leading-snug"
                 whileHover={{ x: 2 }}
                 transition={{ duration: 0.2 }}
               >
                 <span className="font-medium text-gray-800 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
                   {item.content}
                 </span>
-                <span className="text-gray-600 dark:text-gray-300 italic">
-                  , {item.outlet}
-                </span>
-                <span className={`${departureMono.variable} text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em] ml-1`}>
+                <span className="text-gray-600 dark:text-gray-300 italic">, {item.outlet}</span>
+                <span className="font-mono text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em] ml-1">
                   ↗
                 </span>
               </motion.p>
@@ -138,7 +135,7 @@ const renderSection = (section: any) => (
     ) : (
       <div className="space-y-6">
         {section.items.map((item: any, index: number) => {
-          const font = isMedium(item.company) ? ppNeueMontrealMedium.variable : ppNeueMontrealRegular.variable
+          const font = isMedium(item.company) ? 'font-medium' : 'font-sans'
 
           return (
             <motion.div
@@ -150,15 +147,15 @@ const renderSection = (section: any) => (
             >
               <div className="space-y-1">
                 {item.date && (
-                  <p className={`${departureMono.variable} text-[12px] text-[#C5B6B6] dark:text-[#C5B6B6]`}>
+                  <p className="font-mono text-[12px] text-[#C5B6B6] dark:text-[#C5B6B6]">
                     {item.date}
                   </p>
                 )}
-                <h3 className={`${font} text-[15px] font-medium text-gray-800 dark:text-white`}>
+                <h3 className={`${font} text-[15px] text-gray-800 dark:text-white`}>
                   {item.company}
                 </h3>
                 {item.role && (
-                  <p className={`${ppNeueMontrealRegular.variable} text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
+                  <p className="text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed">
                     {item.role}
                   </p>
                 )}
@@ -195,13 +192,13 @@ export default function Resume() {
   }, [])
 
   return (
-    <div className={`${ppNeueMontrealRegular.variable} min-h-screen bg-white dark:bg-black text-gray-800 dark:text-white relative pb-2 transition-colors duration-200`}>
+    <div className="font-sans min-h-screen bg-white dark:bg-black text-gray-800 dark:text-white relative pb-2 transition-colors duration-200">
       <div className="space-y-10">
         <div>
-          <h2 className={`${departureMono.variable} text-[12px] font-normal tracking-tight text-gray-400 dark:text-gray-500`}>
+          <h2 className="font-mono text-[12px] font-normal tracking-tight text-gray-400 dark:text-gray-500">
             Resume
           </h2>
-          <p className={`${ppNeueMontrealRegular.variable} text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed mt-4`}>
+          <p className="text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed mt-4">
             Presenting a resume might feel a bit outdated, but here's a more detailed profile of what I've been up to over the past ten years—a brief overview of the companies I've worked with, mentions in various publications, and more.
           </p>
         </div>
@@ -215,7 +212,7 @@ export default function Resume() {
                     const element = document.getElementById(section.title.toLowerCase().replace(/\s+/g, '-'))
                     element?.scrollIntoView({ behavior: 'smooth' })
                   }}
-                  className={`${departureMono.variable} text-[12px] font-normal tracking-tight whitespace-nowrap transition-colors ${
+                  className={`font-mono text-[12px] font-normal tracking-tight whitespace-nowrap transition-colors ${
                     activeSection === section.title.toLowerCase().replace(/\s+/g, '-')
                       ? 'text-gray-800 dark:text-white'
                       : 'text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400'
