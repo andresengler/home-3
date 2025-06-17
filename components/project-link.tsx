@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { ppNeueMontrealRegular } from '@/app/fonts'
 
 interface ProjectLinkProps {
   href: string
@@ -26,4 +27,3 @@ export function ProjectLink({ href, title, description, showArrow = true }: Proj
     </Link>
   )
 }
-
