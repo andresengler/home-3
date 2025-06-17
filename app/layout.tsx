@@ -3,6 +3,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { InteractiveLogo } from "@/components/InteractiveLogo"
 import { Menu } from "@/components/menu"
 import { Footer } from "@/components/footer"
+import { ppNeueMontrealRegular, departureMono } from "@/app/fonts"
 
 export const metadata = {
   title: "Andrés Engler",
@@ -34,4 +35,3 @@ export default function RootLayout({
     </html>
   )
 }
-
