@@ -4,13 +4,17 @@ import { motion } from 'framer-motion'
 import { ProjectLink } from '@/components/project-link'
 import { Section } from '@/components/section'
 import Link from 'next/link'
-import { ppNeueMontrealRegular, ppNeueMontrealMedium, departureMono } from '@/app/fonts'
+import {
+  ppNeueMontrealRegular,
+  ppNeueMontrealMedium,
+  departureMono,
+} from '@/app/fonts'
 
 export default function Home() {
   return (
     <div className="space-y-8">
       <div className="space-y-3">
-        <h2 className={`${departureMono.variable} text-[12px] font-normal tracking-tight text-gray-400 dark:text-gray-500`}>
+        <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-gray-400 dark:text-gray-500`}>
           About
         </h2>
         <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
@@ -18,7 +22,7 @@ export default function Home() {
         </p>
       </div>
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2 }}
@@ -28,9 +32,14 @@ export default function Home() {
           <div className="space-y-6">
             {[
               {
-                title: (<span className={`${ppNeueMontrealMedium.variable} font-medium`}>Editado</span>),
-                description: "Editorial studio specializing in publishing and research.",
-                href: "https://editado.xyz"
+                title: (
+                  <span className={`${ppNeueMontrealMedium.variable} font-medium`}>
+                    Editado
+                  </span>
+                ),
+                description:
+                  'Editorial studio specializing in publishing and research.',
+                href: 'https://editado.xyz',
               },
             ].map((project, index) => (
               <motion.div
@@ -39,7 +48,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * (index + 1) }}
               >
-                <ProjectLink 
+                <ProjectLink
                   title={project.title}
                   description={project.description}
                   href={project.href}
@@ -50,28 +59,44 @@ export default function Home() {
         </Section>
       </motion.div>
 
-      <motion.section 
+      <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
         className="space-y-3"
       >
-        <h2 className={`${departureMono.variable} text-[12px] font-normal tracking-tight text-gray-400 dark:text-gray-500`}>Now</h2>
+        <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-gray-400 dark:text-gray-500`}>
+          Now
+        </h2>
         <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
-          With <span className={`${ppNeueMontrealMedium.variable} font-medium`}>Editado</span>, I work with a diverse range of clients—including media companies, investment funds, and startups—to conceptualize and create media products such as digital magazines, podcasts, events, and newsletters, while also helping independent authors monetize their work.
+          With{' '}
+          <span className={`${ppNeueMontrealMedium.variable} font-medium`}>
+            Editado
+          </span>
+          , I work with a diverse range of clients—including media companies,
+          investment funds, and startups—to conceptualize and create media
+          products such as digital magazines, podcasts, events, and
+          newsletters, while also helping independent authors monetize their
+          work.
         </p>
         <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed mt-3`}>
-          Lately, I’ve been diving deeper into design. What began as a curiosity about typefaces has evolved into designing interfaces for various platforms. This journey has also sparked my interest in coding, as I strive to create beautiful, functional products from scratch. This website is one of the attempts.
+          Lately, I’ve been diving deeper into design. What began as a curiosity
+          about typefaces has evolved into designing interfaces for various
+          platforms. This journey has also sparked my interest in coding, as I
+          strive to create beautiful, functional products from scratch. This
+          website is one of the attempts.
         </p>
       </motion.section>
 
-      <motion.section 
+      <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4 }}
         className="space-y-3"
       >
-        <h2 className={`${departureMono.variable} text-[12px] font-normal tracking-tight text-gray-400 dark:text-gray-500`}>Contact</h2>
+        <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-gray-400 dark:text-gray-500`}>
+          Contact
+        </h2>
         <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
           You can reach me at andres@editado.xyz.
         </p>
