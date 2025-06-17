@@ -12,7 +12,7 @@ export function ProjectLink({ href, title, description, showArrow = true }: Proj
   return (
     <Link href={href} className="block group">
       <div className="flex items-center gap-1">
-        <h3 className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] font-light text-gray-800 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors`}>
+        <h3 className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] font-normal text-gray-800 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors`}>
           {title}
         </h3>
         {showArrow && (
