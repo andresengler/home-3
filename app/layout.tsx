@@ -1,12 +1,16 @@
-import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import { InteractiveLogo } from "@/components/InteractiveLogo"
-import { Menu } from "@/components/menu"
-import { Footer } from "@/components/footer"
-import { ppNeueMontrealRegular, departureMono } from "@/app/fonts"
+import './globals.css'
+import { ThemeProvider } from '@/components/theme-provider'
+import { InteractiveLogo } from '@/components/InteractiveLogo'
+import { Menu } from '@/components/menu'
+import { Footer } from '@/components/footer'
+import {
+  ppNeueMontrealRegular,
+  ppNeueMontrealMedium,
+  departureMono,
+} from './fonts'
 
 export const metadata = {
-  title: "Andrés Engler",
+  title: 'Andrés Engler',
 }
 
 export default function RootLayout({
@@ -17,7 +21,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${ppNeueMontrealRegular.variable} ${departureMono.variable}`}
+      className={`${ppNeueMontrealRegular.variable} ${ppNeueMontrealMedium.variable} ${departureMono.variable}`}
       suppressHydrationWarning
     >
       <body className="font-sans bg-white dark:bg-black text-gray-800 dark:text-white">
@@ -39,3 +43,4 @@ export default function RootLayout({
     </html>
   )
 }
+
