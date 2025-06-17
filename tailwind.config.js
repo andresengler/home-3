@@ -8,8 +8,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-geist-sans)'],
-        mono: ['var(--font-azeret-mono)'],
+        ppneue: ['var(--font-ppneue-regular)'],
+        ppneueMedium: ['var(--font-ppneue-medium)'],
+        departureMono: ['var(--font-departure-mono)'],
       },
       fontWeight: {
         normal: 400,
@@ -55,4 +56,3 @@ module.exports = {
   plugins: [],
   darkMode: 'class',
 }
-
