@@ -15,10 +15,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${ppNeueMontrealRegular.variable} ${departureMono.variable}`} suppressHydrationWarning>
-      <body>
+    <html
+      lang="en"
+      className={`${ppNeueMontrealRegular.variable} ${departureMono.variable}`}
+      suppressHydrationWarning
+    >
+      <body className="font-sans bg-white dark:bg-black text-gray-800 dark:text-white">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
-          <div className="relative min-h-screen bg-white dark:bg-black flex flex-col">
+          <div className="relative min-h-screen flex flex-col">
             <div className="flex-1">
               <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
                 <header className="flex justify-between items-center py-16">
