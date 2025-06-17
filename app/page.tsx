@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { ProjectLink } from '@/components/project-link'
 import { Section } from '@/components/section'
 import Link from 'next/link'
-
+import { ppNeueMontrealRegular, ppNeueMontrealMedium, departureMono } from '@/app/fonts'
 
 export default function Home() {
   return (
@@ -14,7 +14,8 @@ export default function Home() {
           About
         </h2>
         <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
-        I’m an entrepreneur and editor based in Buenos Aires, Argentina, with a special interest in content, design systems (including typefaces and grids), and Bitcoin. After more than a decade in the media industry, I now focus on exploring new storytelling formats, designing aesthetically refined interfaces, and reimagining monetization strategies—among other pursuits.        </p>
+          I’m an entrepreneur and editor based in Buenos Aires, Argentina, with a special interest in content, design systems (including typefaces and grids), and Bitcoin. After more than a decade in the media industry, I now focus on exploring new storytelling formats, designing aesthetically refined interfaces, and reimagining monetization strategies—among other pursuits.
+        </p>
       </div>
 
       <motion.div 
@@ -33,7 +34,7 @@ export default function Home() {
               },
             ].map((project, index) => (
               <motion.div
-                key={project.title}
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * (index + 1) }}
@@ -57,10 +58,10 @@ export default function Home() {
       >
         <h2 className={`${departureMono.variable} text-[12px] font-normal tracking-tight text-gray-400 dark:text-gray-500`}>Now</h2>
         <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
-        With Editado, I work with a diverse range of clients—including media companies, investment funds, and startups—to conceptualize and create media products such as digital magazines, podcasts, events, and newsletters, while also helping independent authors monetize their work.
+          With <span className={`${ppNeueMontrealMedium.variable} font-medium`}>Editado</span>, I work with a diverse range of clients—including media companies, investment funds, and startups—to conceptualize and create media products such as digital magazines, podcasts, events, and newsletters, while also helping independent authors monetize their work.
         </p>
         <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed mt-3`}>
-        Lately, I’ve been diving deeper into design. What began as a curiosity about typefaces has evolved into designing interfaces for various platforms. This journey has also sparked my interest in coding, as I strive to create beautiful, functional products from scratch. This website is one of the attempts.
+          Lately, I’ve been diving deeper into design. What began as a curiosity about typefaces has evolved into designing interfaces for various platforms. This journey has also sparked my interest in coding, as I strive to create beautiful, functional products from scratch. This website is one of the attempts.
         </p>
       </motion.section>
 
@@ -78,4 +79,3 @@ export default function Home() {
     </div>
   )
 }
-
