@@ -12,10 +12,10 @@ export function InteractiveLogo() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 640) // Consideramos móvil si el ancho es menor a 640px
+      setIsMobile(window.innerWidth < 640)
     }
 
-    handleResize() // Llamada inicial
+    handleResize()
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [])
@@ -32,12 +32,12 @@ export function InteractiveLogo() {
 
   const containerVariants = {
     expanded: { width: 'auto' },
-    collapsed: { width: 30 }
+    collapsed: { width: 30 },
   }
 
   const letterVariants = {
     hidden: { opacity: 0, width: 0 },
-    visible: { opacity: 1, width: 'auto' }
+    visible: { opacity: 1, width: 'auto' },
   }
 
   return (
@@ -45,7 +45,7 @@ export function InteractiveLogo() {
       <motion.div
         className={`relative overflow-hidden ${ppNeueMontrealMedium.variable} font-medium`}
         initial="expanded"
-        animate={isMobile ? "collapsed" : (isExpanded ? "expanded" : "collapsed")}
+        animate={isMobile ? 'collapsed' : isExpanded ? 'expanded' : 'collapsed'}
         variants={containerVariants}
         onHoverStart={() => {
           if (!isMobile) {
@@ -61,7 +61,7 @@ export function InteractiveLogo() {
         }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="flex items-center text-[15px] font-semibold text-gray-800 dark:text-white whitespace-nowrap tracking-tight">
+        <div className="flex items-center text-[15px] font-medium text-gray-800 dark:text-white whitespace-nowrap tracking-tight">
           <span>A</span>
           {!isMobile && (
             <AnimatePresence initial={false}>
@@ -72,7 +72,7 @@ export function InteractiveLogo() {
                   initial="hidden"
                   animate="visible"
                   exit="hidden"
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
                 >
                   ndrés&nbsp;
                 </motion.span>
@@ -89,7 +89,7 @@ export function InteractiveLogo() {
                   initial="hidden"
                   animate="visible"
                   exit="hidden"
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
                 >
                   ngler
                 </motion.span>
