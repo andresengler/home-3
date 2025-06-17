@@ -26,7 +26,7 @@ export function Menu() {
           <li key={item.name}>
             <Link href={item.href}>
               <span
-                className={`${departureMono.variable} text-[15px] font-normal tracking-tight transition-colors duration-200 ${
+                className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight transition-colors duration-200 ${
                   pathname === item.href ? textColorActive : textColorInactive
                 }`}
               >
