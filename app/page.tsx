@@ -6,7 +6,6 @@ import { Section } from '@/components/section'
 import Link from 'next/link'
 import {
   ppNeueMontrealRegular,
-  ppNeueMontrealMedium,
   departureMono,
 } from '@/app/fonts'
 
@@ -14,7 +13,7 @@ export default function Home() {
   return (
     <div className="space-y-8">
       <div className="space-y-3">
-        <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-gray-400 dark:text-gray-500`}>
+        <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
           About
         </h2>
         <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
@@ -32,13 +31,8 @@ export default function Home() {
           <div className="space-y-6">
             {[
               {
-                title: (
-                  <span className={`${ppNeueMontrealMedium.variable} font-medium`}>
-                    Editado
-                  </span>
-                ),
-                description:
-                  'Editorial studio specializing in publishing and research.',
+                title: 'Editado',
+                description: 'Editorial studio specializing in publishing and research.',
                 href: 'https://editado.xyz',
               },
             ].map((project, index) => (
@@ -65,26 +59,14 @@ export default function Home() {
         transition={{ delay: 0.3 }}
         className="space-y-3"
       >
-        <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-gray-400 dark:text-gray-500`}>
+        <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
           Now
         </h2>
         <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
-          With{' '}
-          <span className={`${ppNeueMontrealMedium.variable} font-medium`}>
-            Editado
-          </span>
-          , I work with a diverse range of clients—including media companies,
-          investment funds, and startups—to conceptualize and create media
-          products such as digital magazines, podcasts, events, and
-          newsletters, while also helping independent authors monetize their
-          work.
+          With Editado, I work with a diverse range of clients—including media companies, investment funds, and startups—to conceptualize and create media products such as digital magazines, podcasts, events, and newsletters, while also helping independent authors monetize their work.
         </p>
         <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed mt-3`}>
-          Lately, I’ve been diving deeper into design. What began as a curiosity
-          about typefaces has evolved into designing interfaces for various
-          platforms. This journey has also sparked my interest in coding, as I
-          strive to create beautiful, functional products from scratch. This
-          website is one of the attempts.
+          Lately, I’ve been diving deeper into design. What began as a curiosity about typefaces has evolved into designing interfaces for various platforms. This journey has also sparked my interest in coding, as I strive to create beautiful, functional products from scratch. This website is one of the attempts.
         </p>
       </motion.section>
 
@@ -94,7 +76,7 @@ export default function Home() {
         transition={{ delay: 0.4 }}
         className="space-y-3"
       >
-        <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-gray-400 dark:text-gray-500`}>
+        <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
           Contact
         </h2>
         <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
