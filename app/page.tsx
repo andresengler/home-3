@@ -3,8 +3,10 @@
 import { motion } from 'framer-motion'
 import { ProjectLink } from '@/components/project-link'
 import { Section } from '@/components/section'
+import Link from 'next/link'
 import {
   ppNeueMontrealRegular,
+  ppNeueMontrealMedium,
   departureMono,
 } from '@/app/fonts'
 
@@ -30,8 +32,13 @@ export default function Home() {
           <div className="space-y-6">
             {[
               {
-                title: <span>Editado</span>,
-                description: 'Editorial studio specializing in publishing and research.',
+                title: (
+                  <span className={`${ppNeueMontrealMedium.variable} font-medium`}>
+                    Editado
+                  </span>
+                ),
+                description:
+                  'Editorial studio specializing in publishing and research.',
                 href: 'https://editado.xyz',
               },
             ].map((project, index) => (
@@ -62,18 +69,10 @@ export default function Home() {
           Now
         </h2>
         <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
-          With <span>Editado</span>, I work with a diverse range of clients—including media companies,
-          investment funds, and startups—to conceptualize and create media
-          products such as digital magazines, podcasts, events, and
-          newsletters, while also helping independent authors monetize their
-          work.
+          With <span className="font-medium">Editado</span>, I work with a diverse range of clients—including media companies, investment funds, and startups—to conceptualize and create media products such as digital magazines, podcasts, events, and newsletters, while also helping independent authors monetize their work.
         </p>
         <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed mt-3`}>
-          Lately, I’ve been diving deeper into design. What began as a curiosity
-          about typefaces has evolved into designing interfaces for various
-          platforms. This journey has also sparked my interest in coding, as I
-          strive to create beautiful, functional products from scratch. This
-          website is one of the attempts.
+          Lately, I’ve been diving deeper into design. What began as a curiosity about typefaces has evolved into designing interfaces for various platforms. This journey has also sparked my interest in coding, as I strive to create beautiful, functional products from scratch. This website is one of the attempts.
         </p>
       </motion.section>
 
