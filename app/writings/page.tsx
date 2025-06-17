@@ -1,12 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { departureMono } from '../fonts'
-import { ppNeueMontrealRegular, ppNeueMontrealMedium } from '../fonts'
-
-
+import { departureMono, ppNeueMontrealRegular } from '../fonts'
 
 const writings = [
   {
@@ -72,7 +69,7 @@ export default function Writings() {
   return (
     <div className="space-y-8">
       <div>
-        <h2 className={` text-[12px] font-normal tracking-tight text-gray-400 dark:text-gray-500`}>
+        <h2 className={`${departureMono.variable} font-mono text-[12px] font-normal tracking-tight text-gray-400 dark:text-gray-500`}>
           Writings
         </h2>
         <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed mt-4`}>
@@ -83,7 +80,7 @@ export default function Writings() {
       <div className="space-y-4">
         {writings.map((yearGroup) => (
           <div key={yearGroup.year} className="space-y-4 mb-4">
-            <h3 className={` text-[12px] font-normal tracking-tight text-[#C5B6B6] dark:text-[#C5B6B6] mb-2`}>
+            <h3 className={`${departureMono.variable} font-mono text-[12px] font-normal tracking-tight text-[#C5B6B6] dark:text-[#C5B6B6] mb-2`}>
               {yearGroup.year}
             </h3>
             <div className="space-y-0.5">
@@ -107,7 +104,7 @@ export default function Writings() {
                     <div className="flex items-center justify-between py-1">
                       <div className="flex-1 pr-4">
                         <motion.h4 
-                          className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] font-medium transition-all duration-200 ${
+                          className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] font-normal transition-all duration-200 ${
                             hoveredArticle && hoveredArticle !== article.title 
                               ? 'text-gray-400 dark:text-gray-600 blur-[0.5px]' 
                               : 'text-gray-800 dark:text-white'
@@ -117,7 +114,7 @@ export default function Writings() {
                         </motion.h4>
                       </div>
                       <div className="flex items-center">
-                        <span className={` text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em]`}>
+                        <span className="text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em]">
                           ↗
                         </span>
                       </div>
@@ -132,4 +129,3 @@ export default function Writings() {
     </div>
   )
 }
-
