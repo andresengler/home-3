@@ -1,8 +1,8 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
 
 const resumeData = [
   {
@@ -58,17 +58,6 @@ const resumeData = [
   }
 ]
 
-const isMedium = (company: string) =>
-  [
-    'Editado',
-    'CoinDesk',
-    'La Nación',
-    'Acuris',
-    'El Cronista',
-    'Catholic University of Argentina',
-    'ADEPA Journalism Prize'
-  ].includes(company)
-
 const renderSection = (section: any) => (
   <motion.section
     key={section.title}
@@ -78,7 +67,7 @@ const renderSection = (section: any) => (
     className="space-y-6"
     id={section.title.toLowerCase().replace(/\s+/g, '-')}
   >
-    <h2 className="font-mono text-[12px] font-normal tracking-tight text-gray-400 dark:text-gray-500">
+    <h2 className="font-mono text-[14px] font-normal tracking-tight text-[#8b7664]">
       {section.title}
     </h2>
 
@@ -94,7 +83,7 @@ const renderSection = (section: any) => (
           >
             {['spanish', 'english'].map((lang) => (
               <div key={lang}>
-                <h3 className="font-medium text-[15px] text-gray-800 dark:text-white">
+                <h3 className="text-[15px] text-gray-800 dark:text-white">
                   {item[lang].company}
                 </h3>
                 <p className="text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -120,7 +109,7 @@ const renderSection = (section: any) => (
                 whileHover={{ x: 2 }}
                 transition={{ duration: 0.2 }}
               >
-                <span className="font-medium text-gray-800 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
+                <span className="text-gray-800 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
                   {item.content}
                 </span>
                 <span className="text-gray-600 dark:text-gray-300 italic">, {item.outlet}</span>
@@ -134,35 +123,31 @@ const renderSection = (section: any) => (
       </div>
     ) : (
       <div className="space-y-6">
-        {section.items.map((item: any, index: number) => {
-          const font = isMedium(item.company) ? 'font-medium' : 'font-sans'
-
-          return (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 * (index + 1) }}
-              className="space-y-1 w-full"
-            >
-              <div className="space-y-1">
-                {item.date && (
-                  <p className="font-mono text-[12px] text-[#C5B6B6] dark:text-[#C5B6B6]">
-                    {item.date}
-                  </p>
-                )}
-                <h3 className={`${font} text-[15px] text-gray-800 dark:text-white`}>
-                  {item.company}
-                </h3>
-                {item.role && (
-                  <p className="text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed">
-                    {item.role}
-                  </p>
-                )}
-              </div>
-            </motion.div>
-          )
-        })}
+        {section.items.map((item: any, index: number) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 * (index + 1) }}
+            className="space-y-1 w-full"
+          >
+            <div className="space-y-1">
+              {item.date && (
+                <p className="font-mono text-[12px] text-gray-500 dark:text-gray-400">
+                  {item.date}
+                </p>
+              )}
+              <h3 className="text-[15px] text-gray-800 dark:text-white">
+                {item.company}
+              </h3>
+              {item.role && (
+                <p className="text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed">
+                  {item.role}
+                </p>
+              )}
+            </div>
+          </motion.div>
+        ))}
       </div>
     )}
   </motion.section>
@@ -195,7 +180,7 @@ export default function Resume() {
     <div className="font-sans min-h-screen bg-white dark:bg-black text-gray-800 dark:text-white relative pb-2 transition-colors duration-200">
       <div className="space-y-10">
         <div>
-          <h2 className="font-mono text-[12px] font-normal tracking-tight text-gray-400 dark:text-gray-500">
+          <h2 className="font-mono text-[14px] font-normal tracking-tight text-[#8b7664]">
             Resume
           </h2>
           <p className="text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed mt-4">
