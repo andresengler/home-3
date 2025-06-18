@@ -133,7 +133,7 @@ const renderSection = (section: any) => (
           >
             <div className="space-y-1">
               {item.date && (
-                <p className="font-mono text-[12px] text-gray-500 dark:text-gray-400">
+                <p className="font-mono text-[12px] leading-[18px] text-gray-500 dark:text-gray-400">
                   {item.date}
                 </p>
               )}
@@ -178,8 +178,8 @@ export default function Resume() {
 
   return (
     <div className="font-sans min-h-screen bg-white dark:bg-black text-gray-800 dark:text-white relative pb-2 transition-colors duration-200">
-      <div className="flex w-full px-4 sm:px-6 lg:px-8">
-        <nav className="hidden lg:block sticky top-32 w-48 flex-shrink-0">
+      <div className="flex w-full">
+        <nav className="hidden lg:block sticky top-32 w-48 flex-shrink-0 pl-4 sm:pl-6 lg:pl-8">
           <ul className="space-y-2">
             {resumeData.map((section) => (
               <li key={section.title}>
@@ -201,7 +201,7 @@ export default function Resume() {
           </ul>
         </nav>
 
-        <div className="flex-1 max-w-3xl space-y-10">
+        <div className="flex-1 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto space-y-10">
           <div>
             <h2 className="font-mono text-[14px] font-normal tracking-tight text-[#8b7664]">
               Resume
