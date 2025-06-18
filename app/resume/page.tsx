@@ -188,7 +188,7 @@ export default function Resume() {
           </p>
         </div>
 
-        <nav className="fixed left-[10%] top-[4.5rem] hidden lg:block">
+        <nav className="fixed left-[10%] top-[7.5rem] hidden lg:block">
           <ul className="space-y-2">
             {resumeData.map((section) => (
               <li key={section.title}>
@@ -212,9 +212,7 @@ export default function Resume() {
 
         <div className="space-y-10">
           {resumeData.map((section) => (
-            <div key={section.title}>
-              {renderSection(section)}
-            </div>
+            <div key={section.title}>{renderSection(section)}</div>
           ))}
         </div>
       </div>
