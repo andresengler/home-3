@@ -178,17 +178,9 @@ export default function Resume() {
 
   return (
     <div className="font-sans min-h-screen bg-white dark:bg-black text-gray-800 dark:text-white relative pb-2 transition-colors duration-200">
-      <div className="space-y-10">
-        <div>
-          <h2 className="font-mono text-[14px] font-normal tracking-tight text-[#8b7664]">
-            Resume
-          </h2>
-          <p className="text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed mt-4">
-            Presenting a resume might feel a bit outdated, but here's a more detailed profile of what I've been up to over the past ten years—a brief overview of the companies I've worked with, mentions in various publications, and more.
-          </p>
-        </div>
-
-        <nav className="fixed left-[10%] top-[7.5rem] hidden lg:block">
+      <div className="flex gap-12 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* SideNav */}
+        <nav className="hidden lg:block sticky top-32 pt-1">
           <ul className="space-y-2">
             {resumeData.map((section) => (
               <li key={section.title}>
@@ -210,7 +202,17 @@ export default function Resume() {
           </ul>
         </nav>
 
-        <div className="space-y-10">
+        {/* Main content */}
+        <div className="flex-1 space-y-10">
+          <div>
+            <h2 className="font-mono text-[14px] font-normal tracking-tight text-[#8b7664]">
+              Resume
+            </h2>
+            <p className="text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed mt-4">
+              Presenting a resume might feel a bit outdated, but here's a more detailed profile of what I've been up to over the past ten years—a brief overview of the companies I've worked with, mentions in various publications, and more.
+            </p>
+          </div>
+
           {resumeData.map((section) => (
             <div key={section.title}>{renderSection(section)}</div>
           ))}
