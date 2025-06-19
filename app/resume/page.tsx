@@ -3,11 +3,12 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { ppNeueMontrealRegular, ppNeueMontrealMedium, departureMono } from '../fonts'
 
-const resumeData = [ /* ...mismo array... */ ]
+const resumeData = [ /* ... igual que antes ... */ ]
 
 const renderSection = (section: any) => (
-  <motion.section
+  <motion.section 
     key={section.title}
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
@@ -15,16 +16,28 @@ const renderSection = (section: any) => (
     className="space-y-6"
     id={section.title.toLowerCase().replace(/\s+/g, '-')}
   >
-    <h2 className="font-mono text-[14px] font-normal tracking-tight text-[#8b7664]">{section.title}</h2>
+    <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
+      {section.title}
+    </h2>
 
     {section.title === 'Languages' ? (
       <div className="flex items-center">
         {section.items.map((item: any, index: number) => (
-          <motion.div key={index} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 * (index + 1) }} className="flex items-center gap-12">
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 * (index + 1) }}
+            className="flex items-center gap-12"
+          >
             {['spanish', 'english'].map((lang) => (
               <div key={lang}>
-                <h3 className="text-[15px] text-gray-800 dark:text-white">{item[lang].company}</h3>
-                <p className="text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed">{item[lang].role}</p>
+                <h3 className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-800 dark:text-white`}>
+                  {item[lang].company}
+                </h3>
+                <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
+                  {item[lang].role}
+                </p>
               </div>
             ))}
           </motion.div>
@@ -33,12 +46,25 @@ const renderSection = (section: any) => (
     ) : section.title === 'Citations' ? (
       <div className="space-y-1 mb-4">
         {section.items.map((item: any, index: number) => (
-          <motion.div key={index} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 * (index + 1) }}>
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 * (index + 1) }}
+          >
             <Link href={item.href} className="group block">
-              <motion.p className="text-[15px] leading-snug" whileHover={{ x: 2 }} transition={{ duration: 0.2 }}>
-                <span className="text-gray-800 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">{item.content}</span>
+              <motion.p 
+                className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-snug`}
+                whileHover={{ x: 2 }}
+                transition={{ duration: 0.2 }}
+              >
+                <span className="font-medium text-gray-800 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
+                  {item.content}
+                </span>
                 <span className="text-gray-600 dark:text-gray-300 italic">, {item.outlet}</span>
-                <span className="font-mono text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em] ml-1">↗</span>
+                <span className={`${departureMono.variable} font-mono text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em] ml-1`}>
+                  ↗
+                </span>
               </motion.p>
             </Link>
           </motion.div>
@@ -47,11 +73,27 @@ const renderSection = (section: any) => (
     ) : (
       <div className="space-y-6">
         {section.items.map((item: any, index: number) => (
-          <motion.div key={index} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 * (index + 1) }} className="space-y-1 w-full">
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 * (index + 1) }}
+            className="space-y-1 w-full"
+          >
             <div className="space-y-1">
-              {item.date && <p className="font-mono text-[12px] text-gray-500 dark:text-gray-400">{item.date}</p>}
-              <h3 className="text-[15px] text-gray-800 dark:text-white">{item.company}</h3>
-              {item.role && <p className="text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed">{item.role}</p>}
+              {item.date && (
+                <p className={`${departureMono.variable} font-mono text-[12px] text-gray-500 dark:text-gray-400`}>
+                  {item.date}
+                </p>
+              )}
+              <h3 className={`${ppNeueMontrealMedium.variable} font-medium text-[15px] text-gray-800 dark:text-white`}>
+                {item.company}
+              </h3>
+              {item.role && (
+                <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
+                  {item.role}
+                </p>
+              )}
             </div>
           </motion.div>
         ))}
@@ -84,10 +126,18 @@ export default function Resume() {
   }, [])
 
   return (
-    <div className="font-sans min-h-screen bg-white dark:bg-black text-gray-800 dark:text-white relative pb-2 transition-colors duration-200">
-      <div className="flex">
-        {/* Menu fijo a la izquierda */}
-        <nav className="hidden lg:block sticky top-32 w-48 flex-shrink-0 pl-8">
+    <div className={`${ppNeueMontrealRegular.variable} font-sans min-h-screen bg-white dark:bg-black text-gray-800 dark:text-white relative pb-2 transition-colors duration-200`}>
+      <div className="space-y-10">
+        <div>
+          <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
+            Resume
+          </h2>
+          <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed mt-4`}>
+            Presenting a resume might feel a bit outdated, but here's a more detailed profile of what I've been up to over the past ten years—a brief overview of the companies I've worked with, mentions in various publications, and more.
+          </p>
+        </div>
+
+        <nav className="fixed left-[10%] top-[40%] -translate-y-1/2 hidden lg:block">
           <ul className="space-y-2">
             {resumeData.map((section) => (
               <li key={section.title}>
@@ -96,7 +146,7 @@ export default function Resume() {
                     const el = document.getElementById(section.title.toLowerCase().replace(/\s+/g, '-'))
                     el?.scrollIntoView({ behavior: 'smooth' })
                   }}
-                  className={`font-mono text-[12px] font-normal tracking-tight whitespace-nowrap transition-colors ${
+                  className={`${departureMono.variable} font-mono text-[12px] font-normal tracking-tight whitespace-nowrap transition-colors ${
                     activeSection === section.title.toLowerCase().replace(/\s+/g, '-')
                       ? 'text-gray-800 dark:text-white'
                       : 'text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400'
@@ -109,20 +159,10 @@ export default function Resume() {
           </ul>
         </nav>
 
-        {/* Contenido principal con ancho consistente */}
-        <div className="max-w-3xl w-full mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          <div>
-            <h2 className="font-mono text-[14px] font-normal tracking-tight text-[#8b7664]">Resume</h2>
-            <p className="text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed mt-4">
-              Presenting a resume might feel a bit outdated, but here's a more detailed profile of what I've been up to over the past ten years—a brief overview of the companies I've worked with, mentions in various publications, and more.
-            </p>
-          </div>
-
-          <div className="space-y-10">
-            {resumeData.map((section) => (
-              <div key={section.title}>{renderSection(section)}</div>
-            ))}
-          </div>
+        <div className="space-y-10">
+          {resumeData.map((section) => (
+            <div key={section.title}>{renderSection(section)}</div>
+          ))}
         </div>
       </div>
     </div>
