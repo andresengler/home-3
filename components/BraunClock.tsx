@@ -39,7 +39,7 @@ export const BraunClock: React.FC<BraunClockProps> = ({ time }) => {
       <AnimatePresence>
         {showPopup && (
           <motion.div
-            className={`${departureMono.variable} font-mono text-[14px] text-gray-400 dark:text-gray-500 absolute -top-10 right-1/2 translate-x-1/2 whitespace-nowrap bg-white dark:bg-black border border-gray-200 dark:border-gray-700 shadow-md rounded-lg px-3 py-1 z-10`}
+            className={`${departureMono.variable} font-mono text-[12px] text-gray-400 dark:text-gray-500 absolute -top-10 right-1/2 translate-x-1/2 whitespace-nowrap bg-white dark:bg-black border border-gray-200 dark:border-gray-700 shadow-md rounded-lg px-3 py-1 z-10`}
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } }}
             exit={{ opacity: 0, y: 8, transition: { duration: 0.2, ease: "easeIn" } }}
