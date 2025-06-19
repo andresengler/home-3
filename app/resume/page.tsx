@@ -162,7 +162,7 @@ export default function Resume() {
         </nav>
 
         {/* Content */}
-        <div className="w-full max-w-screen-md px-4 sm:px-6 lg:px-8 space-y-10">
+        <div className="w-full max-w-screen-lg mx-auto px-6 space-y-10">
           <div>
             <h2 className="font-mono text-[14px] font-normal tracking-tight text-[#8b7664]">Resume</h2>
             <p className="text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed mt-4">
