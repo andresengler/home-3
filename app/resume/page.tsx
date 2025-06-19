@@ -12,32 +12,27 @@ const resumeData = [
       {
         date: '9/23 - Now',
         company: 'Editado',
-        role: 'Founder',
-        description: 'Running an editorial studio specializing in publishing and research, providing media consulting to investment funds, startups, and non-profit organizations.'
+        role: 'Founder'
       },
       {
         date: '6/21 - 8/23',
         company: 'CoinDesk',
-        role: 'Editor of content and strategy, Latin America',
-        description: 'Responsible for the English-language coverage of the region and the development of a new Spanish-language platform.'
+        role: 'Editor of content and strategy, Latin America'
       },
       {
         date: '1/20 - 6/21',
         company: 'La Nación',
-        role: 'Features writer',
-        description: 'Published features on startups, technology, investment funds and design for Argentina\'s second largest newspaper.'
+        role: 'Features writer'
       },
       {
         date: '9/19 - 12/21',
         company: 'Acuris',
-        role: 'Correspondent in Argentina',
-        description: 'Reported on Argentina\'s M&A and antitrust industries for Mergermarket and PaRR.'
+        role: 'Correspondent in Argentina'
       },
       {
         date: '4/14 - 8/19',
         company: 'El Cronista',
-        role: 'Reporter',
-        description: 'Published articles in El Cronista and Apertura, Argentina\'s best-selling business magazine.'
+        role: 'Reporter'
       }
     ]
   },
@@ -47,7 +42,7 @@ const resumeData = [
       {
         date: '2010 - 2014',
         company: 'Catholic University of Argentina',
-        role: 'Bachelor\'s Degree in Journalism'
+        role: "Bachelor's Degree in Journalism"
       }
     ]
   },
@@ -108,13 +103,19 @@ const renderSection = (section: any) => (
     {section.title === 'Languages' ? (
       <div className="flex items-center">
         {section.items.map((item: any, index: number) => (
-          <motion.div key={index} className="flex items-center gap-12">
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 * (index + 1) }}
+            className="flex items-center gap-12"
+          >
             {['spanish', 'english'].map((lang) => (
               <div key={lang}>
                 <h3 className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-800 dark:text-white`}>
                   {item[lang].company}
                 </h3>
-                <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300`}>
+                <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
                   {item[lang].role}
                 </p>
               </div>
@@ -125,18 +126,23 @@ const renderSection = (section: any) => (
     ) : section.title === 'Citations' ? (
       <div className="space-y-1 mb-4">
         {section.items.map((item: any, index: number) => (
-          <motion.div key={index}>
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 * (index + 1) }}
+          >
             <Link href={item.href} className="group block">
               <motion.p
                 className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-snug`}
                 whileHover={{ x: 2 }}
                 transition={{ duration: 0.2 }}
               >
-                <span className="font-medium text-gray-800 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300">
+                <span className="font-medium text-gray-800 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
                   {item.content}
                 </span>
                 <span className="text-gray-600 dark:text-gray-300 italic">, {item.outlet}</span>
-                <span className={`${departureMono.variable} font-mono text-[12px] text-gray-400 dark:text-gray-500 ml-1 opacity-0 group-hover:opacity-100`}>
+                <span className={`${departureMono.variable} font-mono text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em] ml-1`}>
                   ↗
                 </span>
               </motion.p>
@@ -147,25 +153,28 @@ const renderSection = (section: any) => (
     ) : (
       <div className="space-y-6">
         {section.items.map((item: any, index: number) => (
-          <motion.div key={index} className="space-y-1 w-full">
-            {item.date && (
-              <p className={`${departureMono.variable} font-mono text-[12px] text-gray-500 dark:text-gray-400`}>
-                {item.date}
-              </p>
-            )}
-            <h3 className={`${ppNeueMontrealMedium.variable} font-medium text-[15px] text-gray-800 dark:text-white`}>
-              {item.company}
-            </h3>
-            {item.role && (
-              <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300`}>
-                {item.role}
-              </p>
-            )}
-            {item.description && (
-              <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-500 dark:text-gray-400`}>
-                {item.description}
-              </p>
-            )}
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 * (index + 1) }}
+            className="space-y-1 w-full"
+          >
+            <div className="space-y-1">
+              {item.date && (
+                <p className={`${departureMono.variable} font-mono text-[12px] text-gray-500 dark:text-gray-400`}>
+                  {item.date}
+                </p>
+              )}
+              <h3 className={`${ppNeueMontrealMedium.variable} font-medium text-[15px] text-gray-800 dark:text-white`}>
+                {item.company}
+              </h3>
+              {item.role && (
+                <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
+                  {item.role}
+                </p>
+              )}
+            </div>
           </motion.div>
         ))}
       </div>
@@ -189,26 +198,26 @@ export default function Resume() {
     )
 
     resumeData.forEach((section) => {
-      const el = document.getElementById(section.title.toLowerCase().replace(/\s+/g, '-'))
-      if (el) observer.observe(el)
+      const element = document.getElementById(section.title.toLowerCase().replace(/\s+/g, '-'))
+      if (element) observer.observe(element)
     })
 
     return () => observer.disconnect()
   }, [])
 
   return (
-    <div className={`${ppNeueMontrealRegular.variable} font-sans min-h-screen bg-white dark:bg-black text-gray-800 dark:text-white pb-2`}>
+    <div className={`${ppNeueMontrealRegular.variable} font-sans min-h-screen bg-white dark:bg-black text-gray-800 dark:text-white relative pb-2 transition-colors duration-200`}>
       <div className="space-y-10">
         <div>
           <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
             Resume
           </h2>
-          <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 mt-4`}>
-            Presenting a resume might feel a bit outdated, but here's a more detailed profile of what I've been up to over the past ten years.
+          <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed mt-4`}>
+            Presenting a resume might feel a bit outdated, but here's a more detailed profile of what I've been up to over the past ten years—a brief overview of the companies I've worked with, mentions in various publications, and more.
           </p>
         </div>
 
-        <nav className="fixed left-[10%] top-[40%] -translate-y-1/2 hidden lg:block">
+        <nav className="fixed left-[10%] top-[36%] -translate-y-1/2 hidden lg:block">
           <ul className="space-y-2">
             {resumeData.map((section) => (
               <li key={section.title}>
@@ -217,7 +226,7 @@ export default function Resume() {
                     const el = document.getElementById(section.title.toLowerCase().replace(/\s+/g, '-'))
                     el?.scrollIntoView({ behavior: 'smooth' })
                   }}
-                  className={`${departureMono.variable} font-mono text-[12px] font-normal tracking-tight ${
+                  className={`${departureMono.variable} font-mono text-[12px] font-normal tracking-tight whitespace-nowrap transition-colors ${
                     activeSection === section.title.toLowerCase().replace(/\s+/g, '-')
                       ? 'text-gray-800 dark:text-white'
                       : 'text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400'
