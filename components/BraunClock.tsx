@@ -82,4 +82,3 @@ export const BraunClock: React.FC<BraunClockProps> = ({ time }) => {
     </div>
   )
 }
-
