@@ -5,12 +5,7 @@ import { useTheme } from "next-themes"
 import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
-interface ThemeToggleProps {
-  lightColor?: string
-  darkColor?: string
-}
-
-export function ThemeToggle({ lightColor = "gray", darkColor = "gray" }: ThemeToggleProps) {
+export function ThemeToggle() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [showOverlay, setShowOverlay] = useState(false)
@@ -20,14 +15,16 @@ export function ThemeToggle({ lightColor = "gray", darkColor = "gray" }: ThemeTo
   }, [])
 
   const handleThemeChange = () => {
+    const nextTheme = theme === "dark" ? "light" : "dark"
     setShowOverlay(true)
+
     setTimeout(() => {
-      setTheme(theme === "dark" ? "light" : "dark")
-    }, 100) // pequeño retraso antes del cambio
+      setTheme(nextTheme)
+    }, 100)
 
     setTimeout(() => {
       setShowOverlay(false)
-    }, 500) // coincide con la duración de la animación
+    }, 600)
   }
 
   if (!mounted) return null
@@ -36,7 +33,7 @@ export function ThemeToggle({ lightColor = "gray", darkColor = "gray" }: ThemeTo
     <>
       <button
         onClick={handleThemeChange}
-        className={`flex items-center justify-center w-8 h-8 text-${theme === "dark" ? darkColor : lightColor}-600 hover:text-${theme === "dark" ? "white" : `${lightColor}-800`} transition-colors duration-200`}
+        className="flex items-center justify-center w-8 h-8 transition-colors duration-200 text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white"
         aria-label="Toggle theme"
       >
         <AnimatePresence mode="wait" initial={false}>
@@ -65,7 +62,9 @@ export function ThemeToggle({ lightColor = "gray", darkColor = "gray" }: ThemeTo
       </button>
 
       {showOverlay && (
-        <div className="theme-transition-overlay fixed inset-0 pointer-events-none z-50" />
+        <div
+          className={`theme-transition-overlay ${theme === "dark" ? "light" : "dark"} animate-fade`}
+        />
       )}
     </>
   )
