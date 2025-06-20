@@ -206,7 +206,7 @@ export default function Resume() {
   }, [])
 
   return (
-    <div className={`${ppNeueMontrealRegular.variable} font-sans min-h-screen bg-white dark:bg-black text-gray-800 dark:text-white relative pb-2 transition-colors duration-200`}>
+    <div className={`${ppNeueMontrealRegular.variable} font-sans min-h-screen bg-transparent text-gray-800 dark:text-white relative pb-2 transition-colors duration-300`}>
       <div className="space-y-10">
         <div>
           <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
