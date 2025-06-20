@@ -3,14 +3,19 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
+import { useTheme } from 'next-themes'
 import { ppNeueMontrealMedium } from '@/app/fonts'
 
 export function InteractiveLogo() {
   const [isExpanded, setIsExpanded] = useState(true)
   const [isHovered, setIsHovered] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
+  const [mounted, setMounted] = useState(false)
+  const { resolvedTheme } = useTheme()
 
   useEffect(() => {
+    setMounted(true)
+
     const handleResize = () => {
       setIsMobile(window.innerWidth < 640)
     }
@@ -54,6 +59,8 @@ export function InteractiveLogo() {
     }
   }, [isMobile])
 
+  if (!mounted) return null
+
   return (
     <Link href="/" aria-label="Homepage">
       <motion.div
@@ -65,7 +72,9 @@ export function InteractiveLogo() {
         onHoverEnd={handleHoverEnd}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="flex items-center text-[15px] font-medium text-gray-800 dark:text-white whitespace-nowrap tracking-tight">
+        <div className={`flex items-center text-[15px] font-medium whitespace-nowrap tracking-tight ${
+          resolvedTheme === 'dark' ? 'text-white' : 'text-gray-800'
+        }`}>
           <span>A</span>
           {!isMobile && (
             <AnimatePresence initial={false}>
