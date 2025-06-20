@@ -138,7 +138,7 @@ const renderSection = (section: any) => (
                 whileHover={{ x: 2 }}
                 transition={{ duration: 0.2 }}
               >
-                <span className="font-medium text-gray-800 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
+                <span className="text-gray-800 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
                   {item.content}
                 </span>
                 <span className="text-gray-600 dark:text-gray-300 italic">, {item.outlet}</span>
@@ -206,7 +206,7 @@ export default function Resume() {
   }, [])
 
   return (
-    <div className={`${ppNeueMontrealRegular.variable} font-sans min-h-screen bg-transparent text-gray-800 dark:text-white relative pb-2 transition-colors duration-300`}>
+    <div className={`${ppNeueMontrealRegular.variable} font-sans min-h-screen bg-white dark:bg-black text-gray-800 dark:text-white relative pb-2 transition-colors duration-200`}>
       <div className="space-y-10">
         <div>
           <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
