@@ -73,11 +73,9 @@ export default function Writings() {
         {writings.map((yearGroup, groupIndex) => (
           <div
             key={yearGroup.year}
-            className={`space-y-3 ${
-              groupIndex < writings.length - 1 ? 'mb-12' : ''
-            }`}
+            className={`mb-12`}
           >
-            <h3 className={`${departureMono.variable} font-mono text-[12px] leading-[18px] font-normal tracking-tight text-gray-500 dark:text-gray-400`}>
+            <h3 className={`${departureMono.variable} font-mono text-[12px] font-normal tracking-tight text-gray-500 dark:text-gray-400 mb-1`}>
               {yearGroup.year}
             </h3>
             <div className="space-y-1">
