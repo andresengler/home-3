@@ -7,11 +7,8 @@
   --font-ppneue-medium: 'PPNeueMontreal-Medium';
   --font-departure-mono: 'DepartureMono-Regular';
 
-  --font-sans: var(--font-ppneue-regular), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-
-  --font-mono: var(--font-departure-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-    "Courier New", monospace;
+  --font-sans: var(--font-ppneue-regular), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-mono: var(--font-departure-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 html {
@@ -45,24 +42,23 @@ body {
 }
 
 * {
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.6s ease, color 0.6s ease;
 }
 
 .content-transition {
-  transition: filter 0.3s ease;
+  transition: filter 0.6s ease;
 }
 
 /* 🌫️ Glass Morph Fade Overlay */
-.theme-transition-overlay {
+.theme-transition-overlay::before {
+  content: '';
   position: fixed;
   inset: 0;
-  z-index: 9999;
+  z-index: 10; /* BAJADO para que quede debajo del contenido */
+  backdrop-filter: blur(16px); /* más blur = más "nube" */
+  background-color: rgba(255, 255, 255, 0.18); /* o rgba(0,0,0,0.18) para dark */
   pointer-events: none;
-  background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.1));
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  animation: fade-out 0.4s ease forwards;
-  border-radius: 0.5rem;
+  animation: fade-out 0.8s ease forwards;
 }
 
 @keyframes fade-out {
