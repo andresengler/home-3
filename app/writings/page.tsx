@@ -69,13 +69,13 @@ export default function Writings() {
         </p>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-6">
         {writings.map((yearGroup) => (
-          <div key={yearGroup.year} className="space-y-1 mb-4">
+          <div key={yearGroup.year} className="space-y-3">
             <h3 className={`${departureMono.variable} font-mono text-[12px] leading-[18px] font-normal tracking-tight text-gray-500 dark:text-gray-400`}>
               {yearGroup.year}
             </h3>
-            <div className="space-y-0.5">
+            <div className="space-y-1">
               {yearGroup.articles.map((article) => (
                 <motion.div
                   key={article.title}
