@@ -206,7 +206,7 @@ export default function Resume() {
   }, [])
 
   return (
-    <div className={`${ppNeueMontrealRegular.variable} font-sans min-h-screen bg-white dark:bg-black text-gray-800 dark:text-white relative pb-2 transition-colors duration-200`}>
+    <div className={`${ppNeueMontrealRegular.variable} font-sans min-h-screen relative pb-2 transition-colors duration-1000 bg-white dark:bg-black z-0`}> {/* Apply background here */}
       <div className="space-y-10">
         <div>
           <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
@@ -217,7 +217,7 @@ export default function Resume() {
           </p>
         </div>
 
-        <nav className="fixed left-[10%] top-[36%] -translate-y-1/2 hidden lg:block">
+        <nav className="fixed left-[10%] top-[36%] -translate-y-1/2 hidden lg:block z-10 bg-transparent transition-colors duration-1000">
           <ul className="space-y-2">
             {resumeData.map((section) => (
               <li key={section.title}>
@@ -226,7 +226,7 @@ export default function Resume() {
                     const el = document.getElementById(section.title.toLowerCase().replace(/\s+/g, '-'))
                     el?.scrollIntoView({ behavior: 'smooth' })
                   }}
-                  className={`${departureMono.variable} font-mono text-[12px] font-normal tracking-tight whitespace-nowrap transition-colors ${
+                  className={`${departureMono.variable} font-mono text-[12px] font-normal tracking-tight whitespace-nowrap transition-colors duration-1000 ${
                     activeSection === section.title.toLowerCase().replace(/\s+/g, '-')
                       ? 'text-gray-800 dark:text-white'
                       : 'text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400'
