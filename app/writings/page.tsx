@@ -69,13 +69,10 @@ export default function Writings() {
         </p>
       </div>
 
-      <div className="space-y-0">
-        {writings.map((yearGroup, groupIndex) => (
-          <div
-            key={yearGroup.year}
-            className={`mb-12`}
-          >
-            <h3 className={`${departureMono.variable} font-mono text-[12px] font-normal tracking-tight text-gray-500 dark:text-gray-400 mb-1`}>
+      <div className="space-y-12">
+        {writings.map((yearGroup) => (
+          <div key={yearGroup.year}>
+            <h3 className={`${departureMono.variable} font-mono text-[12px] leading-[18px] font-normal tracking-tight text-gray-500 dark:text-gray-400 mb-1`}>
               {yearGroup.year}
             </h3>
             <div className="space-y-1">
