@@ -43,7 +43,7 @@ export function Menu() {
             <li key={item.name}>
               <Link href={item.href}>
                 <span
-                  className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight transition-colors duration-300 ${textClass}`}
+                  className={`${departureMono.variable} font-mono text-[13px] font-normal tracking-tight transition-colors duration-300 ${textClass}`}
                 >
                   {item.name}
                 </span>
