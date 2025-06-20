@@ -3,39 +3,67 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ppNeueMontrealRegular, ppNeueMontrealMedium, departureMono } from '../fonts'
+import {
+  ppNeueMontrealRegular,
+  ppNeueMontrealMedium,
+  departureMono,
+} from '../fonts'
 
 const resumeData = [
   {
     title: 'Work Experience',
     items: [
       { date: '9/23 - Now', company: 'Editado', role: 'Founder' },
-      { date: '6/21 - 8/23', company: 'CoinDesk', role: 'Editor of content and strategy, Latin America' },
-      { date: '1/20 - 6/21', company: 'La Nación', role: 'Features writer' },
-      { date: '9/19 - 12/21', company: 'Acuris', role: 'Correspondent in Argentina' },
-      { date: '4/14 - 8/19', company: 'El Cronista', role: 'Reporter' }
-    ]
+      {
+        date: '6/21 - 8/23',
+        company: 'CoinDesk',
+        role: 'Editor of content and strategy, Latin America',
+      },
+      {
+        date: '1/20 - 6/21',
+        company: 'La Nación',
+        role: 'Features writer',
+      },
+      {
+        date: '9/19 - 12/21',
+        company: 'Acuris',
+        role: 'Correspondent in Argentina',
+      },
+      {
+        date: '4/14 - 8/19',
+        company: 'El Cronista',
+        role: 'Reporter',
+      },
+    ],
   },
   {
     title: 'Education',
     items: [
-      { date: '2010 - 2014', company: 'Catholic University of Argentina', role: "Bachelor's Degree in Journalism" }
-    ]
+      {
+        date: '2010 - 2014',
+        company: 'Catholic University of Argentina',
+        role: "Bachelor's Degree in Journalism",
+      },
+    ],
   },
   {
     title: 'Languages',
     items: [
       {
         spanish: { company: 'Spanish', role: 'Native' },
-        english: { company: 'English', role: 'Fluent' }
-      }
-    ]
+        english: { company: 'English', role: 'Fluent' },
+      },
+    ],
   },
   {
     title: 'Awards',
     items: [
-      { date: '12/15', company: 'ADEPA Journalism Prize', role: 'Special mention in Economy' }
-    ]
+      {
+        date: '12/15',
+        company: 'ADEPA Journalism Prize',
+        role: 'Special mention in Economy',
+      },
+    ],
   },
   {
     title: 'Citations',
@@ -43,20 +71,20 @@ const resumeData = [
       {
         content: 'Dos años de bitcoin en El Salvador de Bukele',
         outlet: 'El País',
-        href: 'https://elpais.com/america/economia/2023-09-02/dos-anos-de-bitcoin-en-el-salvador-de-bukele-un-experimento-opaco-con-una-moneda-poco-utilizada.html'
+        href: 'https://elpais.com/america/economia/2023-09-02/dos-anos-de-bitcoin-en-el-salvador-de-bukele-un-experimento-opaco-con-una-moneda-poco-utilizada.html',
       },
       {
         content: 'Crypto adoption spreads in Argentina as central bank tightens rules',
         outlet: 'Financial Times',
-        href: 'https://www.ft.com/content/4dae4742-c339-4414-9bfa-4739df6e5248'
+        href: 'https://www.ft.com/content/4dae4742-c339-4414-9bfa-4739df6e5248',
       },
       {
         content: 'La quiebra de FTX agrava la crisis de las criptomonedas en América Latina',
         outlet: 'El País',
-        href: 'https://elpais.com/mexico/2022-12-04/la-quiebra-de-ftx-agrava-la-crisis-de-las-criptomonedas-en-america-latina.html'
-      }
-    ]
-  }
+        href: 'https://elpais.com/mexico/2022-12-04/la-quiebra-de-ftx-agrava-la-crisis-de-las-criptomonedas-en-america-latina.html',
+      },
+    ],
+  },
 ]
 
 const renderSection = (section: any) => (
@@ -158,16 +186,13 @@ export default function Resume() {
   const [activeSection, setActiveSection] = useState('')
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id)
-          }
-        })
-      },
-      { threshold: 0.5 }
-    )
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id)
+        }
+      })
+    }, { threshold: 0.5 })
 
     resumeData.forEach((section) => {
       const element = document.getElementById(section.title.toLowerCase().replace(/\s+/g, '-'))
@@ -178,24 +203,9 @@ export default function Resume() {
   }, [])
 
   return (
-    <div
-      className={`
-        ${ppNeueMontrealRegular.variable} font-sans min-h-screen relative pb-2
-        transition-colors duration-1000 bg-white dark:bg-black
-        isolate will-change-transform z-0
-      `}
-    >
-      <div className="space-y-10">
-        <div>
-          <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
-            Resume
-          </h2>
-          <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed mt-4`}>
-            Presenting a resume might feel a bit outdated, but here's a more detailed profile of what I've been up to over the past ten years—a brief overview of the companies I've worked with, mentions in various publications, and more.
-          </p>
-        </div>
-
-        <nav className="fixed left-[10%] top-[36%] -translate-y-1/2 hidden lg:block z-10 bg-transparent transition-colors duration-1000">
+    <div className={`${ppNeueMontrealRegular.variable} font-sans min-h-screen relative pb-2 transition-colors duration-1000 bg-white dark:bg-black`}>
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
+        <nav className="fixed left-4 lg:left-8 top-[calc(4rem+24px)] hidden lg:block z-10">
           <ul className="space-y-2">
             {resumeData.map((section) => (
               <li key={section.title}>
@@ -218,6 +228,15 @@ export default function Resume() {
         </nav>
 
         <div className="space-y-10">
+          <div>
+            <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
+              Resume
+            </h2>
+            <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed mt-4`}>
+              Presenting a resume might feel a bit outdated, but here's a more detailed profile of what I've been up to over the past ten years—a brief overview of the companies I've worked with, mentions in various publications, and more.
+            </p>
+          </div>
+
           {resumeData.map((section) => (
             <div key={section.title}>{renderSection(section)}</div>
           ))}
