@@ -52,15 +52,15 @@ body {
   transition: filter 0.3s ease;
 }
 
-/* 🌫️ Glass Morph Fade Overlay */
+/* 🌫️ Glass Morph Fade Overlay for theme switch */
 .theme-transition-overlay::before {
   content: '';
   position: fixed;
   inset: 0;
   z-index: 50;
+  pointer-events: none;
   backdrop-filter: blur(8px);
   background-color: rgba(255, 255, 255, 0.2);
-  pointer-events: none;
   animation: fade-out 0.4s ease forwards;
 }
 
