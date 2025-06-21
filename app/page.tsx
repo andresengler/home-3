@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ProjectLink } from '@/components/project-link'
 import { Section } from '@/components/section'
 import Link from 'next/link'
 import {
@@ -30,31 +29,25 @@ export default function Home() {
       >
         <Section title="Building">
           <div className="space-y-6">
-            {[
-              {
-                title: (
-                  <span className={`${ppNeueMontrealMedium.variable} font-medium`}>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+            >
+              <Link href="https://editado.xyz" className="group block">
+                <div className="flex items-center justify-between">
+                  <h3 className={`${ppNeueMontrealMedium.variable} font-medium text-[15px] text-gray-800 dark:text-white`}>
                     Editado
+                  </h3>
+                  <span className={`${departureMono.variable} font-mono text-gray-400 dark:text-gray-500 text-[0.7em] opacity-0 group-hover:opacity-100 transition-opacity`}>
+                    ↗
                   </span>
-                ),
-                description:
-                  'Editorial studio specializing in publishing and research.',
-                href: 'https://editado.xyz',
-              },
-            ].map((project, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * (index + 1) }}
-              >
-                <ProjectLink
-                  title={project.title}
-                  description={project.description}
-                  href={project.href}
-                />
-              </motion.div>
-            ))}
+                </div>
+                <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed mt-0.5`}>
+                  Editorial studio specializing in publishing and research.
+                </p>
+              </Link>
+            </motion.div>
           </div>
         </Section>
       </motion.div>
