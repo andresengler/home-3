@@ -11,31 +11,11 @@ const resumeData = [
   {
     title: 'Work Experience',
     items: [
-      {
-        date: '9/23 - Now',
-        company: 'Editado',
-        role: 'Founder',
-      },
-      {
-        date: '6/21 - 8/23',
-        company: 'CoinDesk',
-        role: 'Editor of content and strategy, Latin America',
-      },
-      {
-        date: '1/20 - 6/21',
-        company: 'La Nación',
-        role: 'Features writer',
-      },
-      {
-        date: '9/19 - 12/21',
-        company: 'Acuris',
-        role: 'Correspondent in Argentina',
-      },
-      {
-        date: '4/14 - 8/19',
-        company: 'El Cronista',
-        role: 'Reporter',
-      },
+      { date: '9/23 - Now', company: 'Editado', role: 'Founder' },
+      { date: '6/21 - 8/23', company: 'CoinDesk', role: 'Editor of content and strategy, Latin America' },
+      { date: '1/20 - 6/21', company: 'La Nación', role: 'Features writer' },
+      { date: '9/19 - 12/21', company: 'Acuris', role: 'Correspondent in Argentina' },
+      { date: '4/14 - 8/19', company: 'El Cronista', role: 'Reporter' },
     ],
   },
   {
