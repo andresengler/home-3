@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Section } from '@/components/section'
 import Link from 'next/link'
 import {
   ppNeueMontrealRegular,
@@ -27,29 +26,30 @@ export default function Home() {
         transition={{ delay: 0.2 }}
         className="space-y-3"
       >
-        <Section title="Building">
-          <div className="space-y-6">
+        <div className="space-y-1">
+          <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
+            Building
+          </h2>
+          <div className="space-y-6 mt-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
-              <Link href="https://editado.xyz" className="group block">
-                <div className="flex items-center justify-between">
-                  <h3 className={`${ppNeueMontrealMedium.variable} font-medium text-[15px] text-gray-800 dark:text-white`}>
-                    Editado
-                  </h3>
-                  <span className={`${departureMono.variable} font-mono text-gray-400 dark:text-gray-500 text-[0.7em] opacity-0 group-hover:opacity-100 transition-opacity`}>
-                    ↗
-                  </span>
-                </div>
-                <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed mt-0.5`}>
-                  Editorial studio specializing in publishing and research.
-                </p>
+              <Link href="https://editado.xyz" className="group inline-flex items-center space-x-1">
+                <span className={`${ppNeueMontrealMedium.variable} font-medium text-[15px] text-gray-800 dark:text-white`}>
+                  Editado
+                </span>
+                <span className={`${departureMono.variable} font-mono text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em]`}>
+                  ↗
+                </span>
               </Link>
+              <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed mt-1`}>
+                Editorial studio specializing in publishing and research.
+              </p>
             </motion.div>
           </div>
-        </Section>
+        </div>
       </motion.div>
 
       <motion.section
