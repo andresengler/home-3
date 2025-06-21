@@ -69,13 +69,13 @@ export default function Writings() {
         </p>
       </div>
 
-      <div>
-        {writings.map((yearGroup, index) => (
-          <div key={yearGroup.year} className={`${index !== 0 ? 'mt-8' : ''}`}>
+      <div className="space-y-8">
+        {writings.map((yearGroup) => (
+          <div key={yearGroup.year} className="space-y-4 mb-6">
             <h3 className={`${departureMono.variable} font-mono text-[12px] leading-[18px] font-normal tracking-tight text-gray-500 dark:text-gray-400`}>
               {yearGroup.year}
             </h3>
-            <div className="space-y-0.5 mt-[2px]">
+            <div className="space-y-0.5">
               {yearGroup.articles.map((article) => (
                 <motion.div
                   key={article.title}
@@ -103,10 +103,8 @@ export default function Writings() {
                           {article.title}
                         </h4>
                       </div>
-                      <div className="flex items-center">
-                        <span className="text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em]">
-                          ↗
-                        </span>
+                      <div className={`${departureMono.variable} font-mono text-gray-400 dark:text-gray-500 text-[0.7em] opacity-0 group-hover:opacity-100 transition-opacity`}>
+                        ↗
                       </div>
                     </div>
                   </Link>
