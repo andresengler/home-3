@@ -3,7 +3,10 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { departureMono, ppNeueMontrealRegular } from '@/app/fonts'
+import {
+  departureMono,
+  ppNeueMontrealRegular,
+} from '@/app/fonts'
 
 const writings = [
   {
@@ -69,17 +72,16 @@ export default function Writings() {
         </p>
       </div>
 
-      <div className="space-y-8">
+      <div className="space-y-6">
         {writings.map((yearGroup) => (
-          <div key={yearGroup.year} className="space-y-4 mb-6">
+          <div key={yearGroup.year} className="space-y-3">
             <h3 className={`${departureMono.variable} font-mono text-[12px] leading-[18px] font-normal tracking-tight text-gray-500 dark:text-gray-400`}>
               {yearGroup.year}
             </h3>
-            <div className="space-y-0.5">
+            <div className="space-y-1.5">
               {yearGroup.articles.map((article) => (
                 <motion.div
                   key={article.title}
-                  className="relative"
                   initial={{ y: 0 }}
                   whileHover={{ y: -2 }}
                   whileTap={{ y: -2 }}
@@ -87,26 +89,22 @@ export default function Writings() {
                 >
                   <Link
                     href={article.href}
-                    className="group block"
+                    className="group inline-flex items-center space-x-1"
                     onMouseEnter={() => setHoveredArticle(article.title)}
                     onMouseLeave={() => setHoveredArticle(null)}
                   >
-                    <div className="flex items-center justify-between py-1">
-                      <div className="flex-1 pr-4">
-                        <h4
-                          className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] font-normal transition-all duration-200 ${
-                            hoveredArticle && hoveredArticle !== article.title
-                              ? 'text-gray-400 dark:text-gray-600 blur-[0.5px]'
-                              : 'text-gray-800 dark:text-white'
-                          }`}
-                        >
-                          {article.title}
-                        </h4>
-                      </div>
-                      <div className={`${departureMono.variable} font-mono text-gray-400 dark:text-gray-500 text-[0.7em] opacity-0 group-hover:opacity-100 transition-opacity`}>
-                        ↗
-                      </div>
-                    </div>
+                    <span
+                      className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] font-normal transition-all ${
+                        hoveredArticle && hoveredArticle !== article.title
+                          ? 'text-gray-400 dark:text-gray-600 blur-[0.5px]'
+                          : 'text-gray-800 dark:text-white'
+                      }`}
+                    >
+                      {article.title}
+                    </span>
+                    <span className={`${departureMono.variable} font-mono text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em]`}>
+                      ↗
+                    </span>
                   </Link>
                 </motion.div>
               ))}
