@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import {
@@ -8,40 +9,34 @@ import {
   departureMono,
 } from '@/app/fonts'
 
-function PixelatedVerticalBlurOverlay() {
+function TopFadeOverlay({ visible }: { visible: boolean }) {
   return (
-    <div className="pointer-events-none fixed top-0 left-0 right-0 z-30 h-24 transition-opacity duration-700">
-      <div
-        className="w-full h-full bg-white dark:bg-black"
-        style={{
-          maskImage: `repeating-linear-gradient(
-            to bottom,
-            rgba(0,0,0,1) 0px,
-            rgba(0,0,0,1) 4px,
-            rgba(0,0,0,0) 4px,
-            rgba(0,0,0,0) 8px
-          )`,
-          WebkitMaskImage: `repeating-linear-gradient(
-            to bottom,
-            rgba(0,0,0,1) 0px,
-            rgba(0,0,0,1) 4px,
-            rgba(0,0,0,0) 4px,
-            rgba(0,0,0,0) 8px
-          )`,
-          maskSize: '100% 100%',
-          WebkitMaskSize: '100% 100%',
-        }}
-      />
+    <div
+      className={`pointer-events-none fixed top-0 left-0 right-0 z-30 h-28 transition-opacity duration-700 ${visible ? 'opacity-100' : 'opacity-0'}`}
+    >
+      <div className="w-full h-full bg-gradient-to-b from-white via-white/80 to-transparent dark:from-black dark:via-black/30" />
     </div>
   )
 }
 
 export default function Home() {
+  const [showOverlay, setShowOverlay] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const threshold = 180 // px after which the overlay shows
+      setShowOverlay(window.scrollY > threshold)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <>
-      <PixelatedVerticalBlurOverlay />
+      <TopFadeOverlay visible={showOverlay} />
 
-      <div className="pt-24 space-y-8">
+      <div className="pt-28 space-y-8">
         {/* About */}
         <motion.div
           initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
