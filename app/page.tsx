@@ -8,10 +8,28 @@ import {
   departureMono,
 } from '@/app/fonts'
 
-function TopFadeOverlay() {
+function PixelatedFadeOverlay() {
   return (
-    <div className="pointer-events-none fixed top-0 left-0 right-0 z-30 h-28">
-      <div className="w-full h-full bg-gradient-to-b from-white via-white/80 to-transparent dark:from-black dark:via-black/30" />
+    <div className="pointer-events-none fixed top-0 left-0 right-0 z-30 h-24">
+      <div
+        className="w-full h-full bg-white dark:bg-black"
+        style={{
+          maskImage: `linear-gradient(to bottom,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 0.9) 20%,
+            rgba(0, 0, 0, 0.6) 40%,
+            rgba(0, 0, 0, 0.3) 60%,
+            rgba(0, 0, 0, 0.1) 80%,
+            rgba(0, 0, 0, 0) 100%)`,
+          WebkitMaskImage: `linear-gradient(to bottom,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 0.9) 20%,
+            rgba(0, 0, 0, 0.6) 40%,
+            rgba(0, 0, 0, 0.3) 60%,
+            rgba(0, 0, 0, 0.1) 80%,
+            rgba(0, 0, 0, 0) 100%)`,
+        }}
+      />
     </div>
   )
 }
@@ -19,9 +37,9 @@ function TopFadeOverlay() {
 export default function Home() {
   return (
     <>
-      <TopFadeOverlay />
+      <PixelatedFadeOverlay />
 
-      <div className="pt-28 space-y-8">
+      <div className="pt-24 space-y-8">
         {/* About */}
         <motion.div
           initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
