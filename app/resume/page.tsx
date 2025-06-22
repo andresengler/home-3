@@ -97,7 +97,7 @@ export default function Resume() {
                         <h4 className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-800 dark:text-white`}>
                           {item[lang].company}
                         </h4>
-                        <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
+                        <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-normal`}>
                           {item[lang].role}
                         </p>
                       </div>
@@ -134,7 +134,7 @@ export default function Resume() {
                       {item.company}
                     </h4>
                     {item.role && (
-                      <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
+                      <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-normal`}>
                         {item.role}
                       </p>
                     )}
