@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import {
@@ -7,13 +8,38 @@ import {
   ppNeueMontrealMedium,
   departureMono,
 } from '@/app/fonts'
-import { StickyHeaderBlur } from '@/components/sticky-header-blur' // Ajustá si lo ponés en otro lugar
+
+// Blur + fade superior
+function StickyHeaderBlur() {
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 10)
+    }
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  return (
+    <div
+      className={`fixed top-0 left-0 right-0 z-40 h-16 transition-all duration-300 pointer-events-none overflow-hidden ${
+        scrolled ? 'backdrop-blur-md' : ''
+      }`}
+    >
+      {scrolled && (
+        <div className="absolute inset-0 bg-gradient-to-b from-white/60 to-transparent dark:from-black/30" />
+      )}
+    </div>
+  )
+}
 
 export default function Home() {
   return (
     <>
       <StickyHeaderBlur />
-      <div className="space-y-8 pt-10"> {/* pt-10 para compensar el header */}
+
+      <div className="pt-16 space-y-8">
         {/* About */}
         <motion.div
           initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
