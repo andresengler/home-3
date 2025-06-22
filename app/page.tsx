@@ -9,7 +9,7 @@ import {
   departureMono,
 } from '@/app/fonts'
 
-// Blur + fade superior
+// Header blur refinado
 function StickyHeaderBlur() {
   const [scrolled, setScrolled] = useState(false)
 
@@ -23,12 +23,12 @@ function StickyHeaderBlur() {
 
   return (
     <div
-      className={`fixed top-0 left-0 right-0 z-40 h-16 transition-all duration-300 pointer-events-none overflow-hidden ${
-        scrolled ? 'backdrop-blur-md' : ''
+      className={`fixed top-0 left-0 right-0 z-40 h-8 transition-all duration-300 pointer-events-none overflow-hidden ${
+        scrolled ? 'backdrop-blur-sm' : ''
       }`}
     >
       {scrolled && (
-        <div className="absolute inset-0 bg-gradient-to-b from-white/60 to-transparent dark:from-black/30" />
+        <div className="absolute inset-0 h-16 bg-gradient-to-b from-white/30 to-transparent dark:from-black/10" />
       )}
     </div>
   )
@@ -39,7 +39,7 @@ export default function Home() {
     <>
       <StickyHeaderBlur />
 
-      <div className="pt-16 space-y-8">
+      <div className="pt-10 space-y-8">
         {/* About */}
         <motion.div
           initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
