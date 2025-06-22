@@ -23,7 +23,7 @@ function TopFadeOverlay() {
 
   return (
     <div
-      className={`pointer-events-none fixed top-0 left-0 right-0 z-30 h-28 transition-opacity duration-700 ${
+      className={`pointer-events-none fixed top-0 left-0 right-0 z-30 h-20 transition-opacity duration-700 ${
         showOverlay ? 'opacity-100' : 'opacity-0'
       }`}
     >
@@ -37,7 +37,7 @@ export default function Home() {
     <>
       <TopFadeOverlay />
 
-      <div className="pt-14 space-y-8">
+      <div className="pt-20 space-y-8">
         {/* About */}
         <motion.div
           initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
