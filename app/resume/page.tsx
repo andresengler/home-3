@@ -72,11 +72,11 @@ const resumeData = [
 export default function Resume() {
   return (
     <div className="space-y-10">
-      <div>
+      <div className="space-y-3">
         <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
           Resume
         </h2>
-        <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed mt-4`}>
+        <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
           Presenting a resume might feel a bit outdated, but here's a more detailed profile of what I've been up to over the past ten years—a brief overview of the companies I've worked with, mentions in various publications, and more.
         </p>
       </div>
@@ -89,22 +89,24 @@ export default function Resume() {
             </h3>
 
             {section.title === 'Languages' ? (
-              <div className="flex items-center gap-12">
+              <div className="space-y-3">
                 {section.items.map((item: any, index: number) => (
-                  ['spanish', 'english'].map((lang) => (
-                    <div key={lang}>
-                      <h4 className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-800 dark:text-white`}>
-                        {item[lang].company}
-                      </h4>
-                      <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
-                        {item[lang].role}
-                      </p>
-                    </div>
-                  ))
+                  <div key={index} className="space-y-2">
+                    {['spanish', 'english'].map((lang) => (
+                      <div key={lang}>
+                        <h4 className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-800 dark:text-white`}>
+                          {item[lang].company}
+                        </h4>
+                        <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
+                          {item[lang].role}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
                 ))}
               </div>
             ) : section.title === 'Citations' ? (
-              <div className="space-y-1 mb-4">
+              <div className="space-y-2">
                 {section.items.map((item: any) => (
                   <Link key={item.href} href={item.href} className="group block">
                     <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-snug`}>
