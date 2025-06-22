@@ -8,25 +8,25 @@ import {
   departureMono,
 } from '@/app/fonts'
 
-function PixelatedFadeOverlay() {
+function PixelatedVerticalBlurOverlay() {
   return (
-    <div className="pointer-events-none fixed top-0 left-0 right-0 z-30 h-16">
+    <div className="pointer-events-none fixed top-0 left-0 right-0 z-30 h-24 transition-opacity duration-700">
       <div
         className="w-full h-full bg-white dark:bg-black"
         style={{
           maskImage: `repeating-linear-gradient(
             to bottom,
             rgba(0,0,0,1) 0px,
-            rgba(0,0,0,1) 2px,
-            rgba(0,0,0,0) 2px,
-            rgba(0,0,0,0) 4px
+            rgba(0,0,0,1) 4px,
+            rgba(0,0,0,0) 4px,
+            rgba(0,0,0,0) 8px
           )`,
           WebkitMaskImage: `repeating-linear-gradient(
             to bottom,
             rgba(0,0,0,1) 0px,
-            rgba(0,0,0,1) 2px,
-            rgba(0,0,0,0) 2px,
-            rgba(0,0,0,0) 4px
+            rgba(0,0,0,1) 4px,
+            rgba(0,0,0,0) 4px,
+            rgba(0,0,0,0) 8px
           )`,
           maskSize: '100% 100%',
           WebkitMaskSize: '100% 100%',
@@ -39,9 +39,9 @@ function PixelatedFadeOverlay() {
 export default function Home() {
   return (
     <>
-      <PixelatedFadeOverlay />
+      <PixelatedVerticalBlurOverlay />
 
-      <div className="pt-16 space-y-8">
+      <div className="pt-24 space-y-8">
         {/* About */}
         <motion.div
           initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
