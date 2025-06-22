@@ -62,7 +62,12 @@ export default function Writings() {
   const [hoveredArticle, setHoveredArticle] = useState<string | null>(null)
 
   return (
-    <div className="space-y-8">
+    <motion.div
+      initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
+      animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+      className="space-y-8"
+    >
       <div className="space-y-3">
         <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
           Writings
@@ -73,8 +78,14 @@ export default function Writings() {
       </div>
 
       <div className="space-y-6">
-        {writings.map((yearGroup) => (
-          <div key={yearGroup.year} className="space-y-3">
+        {writings.map((yearGroup, i) => (
+          <motion.div
+            key={yearGroup.year}
+            initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
+            animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.15 + i * 0.1 }}
+            className="space-y-3"
+          >
             <h3 className={`${departureMono.variable} font-mono text-[12px] leading-[18px] font-normal tracking-tight text-gray-500 dark:text-gray-400`}>
               {yearGroup.year}
             </h3>
@@ -109,9 +120,9 @@ export default function Writings() {
                 </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   )
 }
