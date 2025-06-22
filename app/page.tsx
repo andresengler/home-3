@@ -10,7 +10,7 @@ import {
 
 function PixelatedFadeOverlay() {
   return (
-    <div className="pointer-events-none fixed top-0 left-0 right-0 z-30 h-24">
+    <div className="pointer-events-none fixed top-0 left-0 right-0 z-30 h-16">
       <div
         className="w-full h-full bg-white dark:bg-black"
         style={{
@@ -41,7 +41,7 @@ export default function Home() {
     <>
       <PixelatedFadeOverlay />
 
-      <div className="pt-24 space-y-8">
+      <div className="pt-16 space-y-8">
         {/* About */}
         <motion.div
           initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
