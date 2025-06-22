@@ -14,20 +14,22 @@ function PixelatedFadeOverlay() {
       <div
         className="w-full h-full bg-white dark:bg-black"
         style={{
-          maskImage: `linear-gradient(to bottom,
-            rgba(0, 0, 0, 1) 0%,
-            rgba(0, 0, 0, 0.9) 20%,
-            rgba(0, 0, 0, 0.6) 40%,
-            rgba(0, 0, 0, 0.3) 60%,
-            rgba(0, 0, 0, 0.1) 80%,
-            rgba(0, 0, 0, 0) 100%)`,
-          WebkitMaskImage: `linear-gradient(to bottom,
-            rgba(0, 0, 0, 1) 0%,
-            rgba(0, 0, 0, 0.9) 20%,
-            rgba(0, 0, 0, 0.6) 40%,
-            rgba(0, 0, 0, 0.3) 60%,
-            rgba(0, 0, 0, 0.1) 80%,
-            rgba(0, 0, 0, 0) 100%)`,
+          maskImage: `repeating-linear-gradient(
+            to bottom,
+            rgba(0,0,0,1) 0px,
+            rgba(0,0,0,1) 2px,
+            rgba(0,0,0,0) 2px,
+            rgba(0,0,0,0) 4px
+          )`,
+          WebkitMaskImage: `repeating-linear-gradient(
+            to bottom,
+            rgba(0,0,0,1) 0px,
+            rgba(0,0,0,1) 2px,
+            rgba(0,0,0,0) 2px,
+            rgba(0,0,0,0) 4px
+          )`,
+          maskSize: '100% 100%',
+          WebkitMaskSize: '100% 100%',
         }}
       />
     </div>
