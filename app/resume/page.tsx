@@ -109,7 +109,7 @@ export default function Resume() {
               <div className="space-y-2">
                 {section.items.map((item: any) => (
                   <Link key={item.href} href={item.href} className="group block">
-                    <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-snug`}>
+                    <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-tight`}>
                       <span className="text-gray-800 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
                         {item.content}
                       </span>
