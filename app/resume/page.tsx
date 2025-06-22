@@ -1,5 +1,6 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import Link from 'next/link'
 import {
   ppNeueMontrealRegular,
@@ -71,7 +72,12 @@ const resumeData = [
 
 export default function Resume() {
   return (
-    <div className="space-y-10">
+    <motion.div
+      initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
+      animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+      className="space-y-10"
+    >
       <div className="space-y-3">
         <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
           Resume
@@ -82,8 +88,14 @@ export default function Resume() {
       </div>
 
       <div className="space-y-10">
-        {resumeData.map((section) => (
-          <section key={section.title} className="space-y-6">
+        {resumeData.map((section, i) => (
+          <motion.section
+            key={section.title}
+            initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
+            animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.15 + i * 0.1 }}
+            className="space-y-6"
+          >
             <h3 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
               {section.title}
             </h3>
@@ -142,9 +154,9 @@ export default function Resume() {
                 ))}
               </div>
             )}
-          </section>
+          </motion.section>
         ))}
       </div>
-    </div>
+    </motion.div>
   )
 }
