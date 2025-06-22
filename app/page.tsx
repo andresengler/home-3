@@ -12,20 +12,25 @@ export default function Home() {
   return (
     <div className="space-y-8">
       {/* About */}
-      <div className="space-y-3">
+      <motion.div
+        initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
+        animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+        transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
+        className="space-y-3"
+      >
         <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
           About
         </h2>
         <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
           I’m an entrepreneur and editor based in Buenos Aires, Argentina, with a special interest in content, design systems (including typefaces and grids), and Bitcoin. After more than a decade in the media industry, I now focus on exploring new storytelling formats, designing aesthetically refined interfaces, and reimagining monetization strategies—among other pursuits.
         </p>
-      </div>
+      </motion.div>
 
       {/* Building */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.2 }}
+        initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
+        animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+        transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
         className="space-y-3"
       >
         <div className="space-y-1">
@@ -36,7 +41,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
+              transition={{ delay: 0.3 }}
             >
               <Link href="https://editado.xyz" className="group inline-flex items-center space-x-1">
                 <span className={`${ppNeueMontrealMedium.variable} font-medium text-[15px] text-gray-800 dark:text-white`}>
@@ -56,9 +61,9 @@ export default function Home() {
 
       {/* Now */}
       <motion.section
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3 }}
+        initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
+        animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+        transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
         className="space-y-3"
       >
         <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
@@ -76,9 +81,9 @@ export default function Home() {
 
       {/* Contact */}
       <motion.section
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.4 }}
+        initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
+        animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+        transition={{ duration: 0.8, ease: 'easeOut', delay: 0.4 }}
         className="space-y-3"
       >
         <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
