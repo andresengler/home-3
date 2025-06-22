@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import {
@@ -9,8 +10,23 @@ import {
 } from '@/app/fonts'
 
 function TopFadeOverlay() {
+  const [showOverlay, setShowOverlay] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowOverlay(window.scrollY > 180)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <div className="pointer-events-none fixed top-0 left-0 right-0 z-30 h-28">
+    <div
+      className={`pointer-events-none fixed top-0 left-0 right-0 z-30 h-28 transition-opacity duration-700 ${
+        showOverlay ? 'opacity-100' : 'opacity-0'
+      }`}
+    >
       <div className="w-full h-full bg-gradient-to-b from-white via-white/80 to-transparent dark:from-black dark:via-black/30" />
     </div>
   )
