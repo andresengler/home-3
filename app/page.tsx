@@ -24,10 +24,9 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const threshold = 180 // px after which the overlay shows
+      const threshold = 180
       setShowOverlay(window.scrollY > threshold)
     }
-
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -36,7 +35,7 @@ export default function Home() {
     <>
       <TopFadeOverlay visible={showOverlay} />
 
-      <div className="pt-28 space-y-8">
+      <div className="pt-16 space-y-8">
         {/* About */}
         <motion.div
           initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
