@@ -9,12 +9,12 @@ import {
   departureMono,
 } from '@/app/fonts'
 
-function PixelBlurOverlay() {
+function TopFadeOverlay() {
   const [showOverlay, setShowOverlay] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setShowOverlay(window.scrollY > 10)
+      setShowOverlay(window.scrollY > 180)
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -23,24 +23,11 @@ function PixelBlurOverlay() {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-full z-40 h-52 pointer-events-none transition-opacity duration-700 ease-in-out ${
+      className={`pointer-events-none fixed top-0 left-0 right-0 z-30 h-28 transition-opacity duration-700 ${
         showOverlay ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      <div className="grid grid-cols-32 grid-rows-12 w-full h-full gap-[2px]">
-        {Array.from({ length: 384 }).map((_, i) => {
-          const gray = Math.floor(Math.random() * 80 + 100) // escala de grises media
-          return (
-            <div
-              key={i}
-              className="w-full h-full"
-              style={{
-                backgroundColor: `rgba(${gray}, ${gray}, ${gray}, 0.9)`
-              }}
-            />
-          )
-        })}
-      </div>
+      <div className="w-full h-full bg-gradient-to-b from-white via-white/80 to-transparent dark:from-black dark:via-black/30" />
     </div>
   )
 }
@@ -48,17 +35,17 @@ function PixelBlurOverlay() {
 export default function Home() {
   return (
     <>
-      <PixelBlurOverlay />
+      <TopFadeOverlay />
 
-      <div className="pt-32 space-y-10 px-4 sm:px-6 md:px-10">
+      <div className="pt-14 space-y-8">
         {/* About */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
+          animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
           className="space-y-3"
         >
-          <h2 className={`${departureMono.variable} font-mono text-[14px] text-[#8b7664]`}>
+          <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
             About
           </h2>
           <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
@@ -68,53 +55,65 @@ export default function Home() {
 
         {/* Building */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
+          animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
           className="space-y-3"
         >
-          <h2 className={`${departureMono.variable} font-mono text-[14px] text-[#8b7664]`}>
-            Building
-          </h2>
-          <Link href="https://editado.xyz" className="group inline-flex items-center space-x-1">
-            <span className={`${ppNeueMontrealMedium.variable} font-medium text-[15px] text-gray-800 dark:text-white`}>
-              Editado
-            </span>
-            <span className={`${departureMono.variable} font-mono text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em]`}>
-              ↗
-            </span>
-          </Link>
-          <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
-            Editorial studio specializing in publishing and research.
-          </p>
+          <div className="space-y-1">
+            <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
+              Building
+            </h2>
+            <div className="space-y-6">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                <Link href="https://editado.xyz" className="group inline-flex items-center space-x-1">
+                  <span className={`${ppNeueMontrealMedium.variable} font-medium text-[15px] text-gray-800 dark:text-white`}>
+                    Editado
+                  </span>
+                  <span className={`${departureMono.variable} font-mono text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em]`}>
+                    ↗
+                  </span>
+                </Link>
+                <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
+                  Editorial studio specializing in publishing and research.
+                </p>
+              </motion.div>
+            </div>
+          </div>
         </motion.div>
 
         {/* Now */}
         <motion.section
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
+          animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
           className="space-y-3"
         >
-          <h2 className={`${departureMono.variable} font-mono text-[14px] text-[#8b7664]`}>
+          <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
             Now
           </h2>
-          <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
-            With Editado, I work with a diverse range of clients—including media companies, investment funds, and startups—to conceptualize and create media products such as digital magazines, podcasts, events, and newsletters, while also helping independent authors monetize their work.
-          </p>
-          <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
-            Lately, I’ve been diving deeper into design. What began as a curiosity about typefaces has evolved into designing interfaces for various platforms. This journey has also sparked my interest in coding, as I strive to create beautiful, functional products from scratch. This website is one of the attempts.
-          </p>
+          <div className="space-y-3">
+            <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
+              With Editado, I work with a diverse range of clients—including media companies, investment funds, and startups—to conceptualize and create media products such as digital magazines, podcasts, events, and newsletters, while also helping independent authors monetize their work.
+            </p>
+            <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
+              Lately, I’ve been diving deeper into design. What began as a curiosity about typefaces has evolved into designing interfaces for various platforms. This journey has also sparked my interest in coding, as I strive to create beautiful, functional products from scratch. This website is one of the attempts.
+            </p>
+          </div>
         </motion.section>
 
         {/* Contact */}
         <motion.section
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
+          animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.4 }}
           className="space-y-3"
         >
-          <h2 className={`${departureMono.variable} font-mono text-[14px] text-[#8b7664]`}>
+          <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
             Contact
           </h2>
           <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
