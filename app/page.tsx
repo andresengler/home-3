@@ -36,9 +36,9 @@ export default function Home() {
     <>
       <TopFadeOverlay />
 
-      <div className="pt-14 space-y-12">
+      <div className="pt-20 space-y-16">
         {/* About */}
-        <div className="space-y-3">
+        <div className="space-y-4">
           <h2
             className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}
           >
@@ -52,7 +52,7 @@ export default function Home() {
         </div>
 
         {/* Building */}
-        <div className="space-y-3">
+        <div className="space-y-4">
           <h2
             className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}
           >
@@ -83,7 +83,7 @@ export default function Home() {
         </div>
 
         {/* Now */}
-        <div className="space-y-3">
+        <div className="space-y-4">
           <h2
             className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}
           >
@@ -104,7 +104,7 @@ export default function Home() {
         </div>
 
         {/* Contact */}
-        <div className="space-y-3">
+        <div className="space-y-4">
           <h2
             className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}
           >
