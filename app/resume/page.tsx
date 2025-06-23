@@ -1,12 +1,55 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import {
   ppNeueMontrealRegular,
   ppNeueMontrealMedium,
   departureMono,
 } from '@/app/fonts'
-import { PixelBlurOverlay } from '@/components/pixel-blur-overlay'
+
+function TopFadeOverlay() {
+  const [showOverlay, setShowOverlay] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowOverlay(window.scrollY > 180)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  return (
+    <div
+      className={`pointer-events-none fixed top-0 left-0 right-0 z-30 h-28 transition-opacity duration-700 ${
+        showOverlay ? 'opacity-100' : 'opacity-0'
+      }`}
+    >
+      <div
+        className="w-full h-full bg-white dark:bg-black"
+        style={{
+          maskImage: `repeating-linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.95) 0px,
+            rgba(0,0,0,0.95) 3px,
+            rgba(0,0,0,0.2) 3px,
+            rgba(0,0,0,0.2) 6px
+          )`,
+          WebkitMaskImage: `repeating-linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.95) 0px,
+            rgba(0,0,0,0.95) 3px,
+            rgba(0,0,0,0.2) 3px,
+            rgba(0,0,0,0.2) 6px
+          )`,
+          maskSize: '100% 100%',
+          WebkitMaskSize: '100% 100%',
+        }}
+      />
+    </div>
+  )
+}
 
 const resumeData = [
   {
@@ -73,9 +116,9 @@ const resumeData = [
 export default function Resume() {
   return (
     <>
-      <PixelBlurOverlay />
+      <TopFadeOverlay />
 
-      <div className="pt-28 space-y-10">
+      <div className="pt-14 space-y-10">
         <div>
           <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
             Resume
@@ -94,7 +137,7 @@ export default function Resume() {
 
               {section.title === 'Languages' ? (
                 <div className="flex items-center gap-12">
-                  {section.items.map((item: any) =>
+                  {section.items.map((item, index) =>
                     ['spanish', 'english'].map((lang) => (
                       <div key={lang}>
                         <h4 className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-800 dark:text-white`}>
@@ -109,7 +152,7 @@ export default function Resume() {
                 </div>
               ) : section.title === 'Citations' ? (
                 <div className="space-y-1 mb-4">
-                  {section.items.map((item: any) => (
+                  {section.items.map((item) => (
                     <Link key={item.href} href={item.href} className="group block">
                       <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-snug`}>
                         <span className="text-gray-800 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
@@ -125,7 +168,7 @@ export default function Resume() {
                 </div>
               ) : (
                 <div className="space-y-6">
-                  {section.items.map((item: any, index: number) => (
+                  {section.items.map((item, index) => (
                     <div key={index} className="space-y-1 w-full">
                       {item.date && (
                         <p className={`${departureMono.variable} font-mono text-[12px] text-gray-500 dark:text-gray-400`}>
