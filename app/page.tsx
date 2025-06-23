@@ -63,7 +63,7 @@ export default function Home() {
           <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
             Building
           </h2>
-          <div className="space-y-3">
+          <div className="space-y-2">
             <Link href="https://editado.xyz" className="group inline-flex items-center space-x-1">
               <span className={`${ppNeueMontrealMedium.variable} font-medium text-[15px] text-gray-800 dark:text-white`}>
                 Editado
