@@ -9,39 +9,28 @@ import {
   departureMono,
 } from '@/app/fonts'
 
-function PixelatedGlassOverlay() {
-  const [show, setShow] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => {
-      setShow(window.scrollY > 80)
-    }
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
+function PixelatedBlurOverlay({ visible }: { visible: boolean }) {
   return (
-    <div
-      className={`pointer-events-none fixed top-0 left-0 right-0 z-30 h-24 transition-opacity duration-700 ease-in-out ${
-        show ? 'opacity-100' : 'opacity-0'
-      }`}
-    >
+    <div className={`pointer-events-none fixed top-0 left-0 right-0 z-20 h-24 transition-opacity duration-700 ease-in-out ${visible ? 'opacity-100' : 'opacity-0'}`}>
       <div
-        className="w-full h-full backdrop-blur-md bg-white/30 dark:bg-black/20"
+        className="w-full h-full"
         style={{
+          background: 'rgba(255, 255, 255, 0.6)',
+          backdropFilter: 'blur(4px)',
+          WebkitBackdropFilter: 'blur(4px)',
           maskImage: `repeating-linear-gradient(
             to bottom,
             rgba(0,0,0,1) 0px,
-            rgba(0,0,0,1) 6px,
-            rgba(0,0,0,0) 6px,
-            rgba(0,0,0,0) 12px
+            rgba(0,0,0,1) 4px,
+            rgba(0,0,0,0) 4px,
+            rgba(0,0,0,0) 8px
           )`,
           WebkitMaskImage: `repeating-linear-gradient(
             to bottom,
             rgba(0,0,0,1) 0px,
-            rgba(0,0,0,1) 6px,
-            rgba(0,0,0,0) 6px,
-            rgba(0,0,0,0) 12px
+            rgba(0,0,0,1) 4px,
+            rgba(0,0,0,0) 4px,
+            rgba(0,0,0,0) 8px
           )`,
           maskSize: '100% 100%',
           WebkitMaskSize: '100% 100%',
@@ -52,16 +41,26 @@ function PixelatedGlassOverlay() {
 }
 
 export default function Home() {
+  const [showOverlay, setShowOverlay] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowOverlay(window.scrollY > 80)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <>
-      <PixelatedGlassOverlay />
+      <PixelatedBlurOverlay visible={showOverlay} />
 
-      <div className="pt-14 space-y-8">
+      <div className="pt-20 sm:pt-32 space-y-8">
         {/* About */}
         <motion.div
           initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
           animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
+          transition={{ duration: 1, ease: 'easeOut', delay: 0.1 }}
           className="space-y-3"
         >
           <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
@@ -76,7 +75,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
           animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+          transition={{ duration: 1, ease: 'easeOut', delay: 0.2 }}
           className="space-y-3"
         >
           <div className="space-y-1">
@@ -109,7 +108,7 @@ export default function Home() {
         <motion.section
           initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
           animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
+          transition={{ duration: 1, ease: 'easeOut', delay: 0.3 }}
           className="space-y-3"
         >
           <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
@@ -129,7 +128,7 @@ export default function Home() {
         <motion.section
           initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
           animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.4 }}
+          transition={{ duration: 1, ease: 'easeOut', delay: 0.4 }}
           className="space-y-3"
         >
           <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
