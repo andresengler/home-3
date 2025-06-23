@@ -9,7 +9,7 @@ import {
   departureMono,
 } from '@/app/fonts'
 
-function TopFadeOverlay() {
+function TopPixelGridOverlay() {
   const [showOverlay, setShowOverlay] = useState(false)
 
   useEffect(() => {
@@ -23,11 +23,24 @@ function TopFadeOverlay() {
 
   return (
     <div
-      className={`pointer-events-none fixed top-0 left-0 right-0 z-30 h-20 transition-opacity duration-700 ${
+      className={`pointer-events-none fixed top-0 left-0 right-0 z-30 h-24 transition-opacity duration-700 ${
         showOverlay ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      <div className="w-full h-full bg-gradient-to-b from-white via-white/80 to-transparent dark:from-black dark:via-black/30" />
+      <div
+        className="w-full h-full"
+        style={{
+          backgroundColor: 'white',
+          backgroundImage: `
+            linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px),
+            linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px)
+          `,
+          backgroundSize: '6px 6px',
+          maskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)',
+        }}
+        className="dark:bg-black"
+      />
     </div>
   )
 }
@@ -35,14 +48,14 @@ function TopFadeOverlay() {
 export default function Home() {
   return (
     <>
-      <TopFadeOverlay />
+      <TopPixelGridOverlay />
 
-      <div className="pt-20 space-y-8">
+      <div className="pt-20 md:pt-24 space-y-12">
         {/* About */}
         <motion.div
           initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
           animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
+          transition={{ duration: 1, ease: 'easeOut', delay: 0.1 }}
           className="space-y-3"
         >
           <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
@@ -57,7 +70,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
           animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+          transition={{ duration: 1, ease: 'easeOut', delay: 0.2 }}
           className="space-y-3"
         >
           <div className="space-y-1">
@@ -90,7 +103,7 @@ export default function Home() {
         <motion.section
           initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
           animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
+          transition={{ duration: 1, ease: 'easeOut', delay: 0.3 }}
           className="space-y-3"
         >
           <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
@@ -110,7 +123,7 @@ export default function Home() {
         <motion.section
           initial={{ opacity: 0, filter: 'blur(6px)', y: 10 }}
           animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.4 }}
+          transition={{ duration: 1, ease: 'easeOut', delay: 0.4 }}
           className="space-y-3"
         >
           <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
