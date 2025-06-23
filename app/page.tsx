@@ -60,23 +60,21 @@ export default function Home() {
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
           className="space-y-3"
         >
+          <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
+            Building
+          </h2>
           <div className="space-y-3">
-            <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
-              Building
-            </h2>
-            <div className="space-y-3">
-              <Link href="https://editado.xyz" className="group inline-flex items-center space-x-1">
-                <span className={`${ppNeueMontrealMedium.variable} font-medium text-[15px] text-gray-800 dark:text-white`}>
-                  Editado
-                </span>
-                <span className={`${departureMono.variable} font-mono text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em]`}>
-                  ↗
-                </span>
-              </Link>
-              <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
-                Editorial studio specializing in publishing and research.
-              </p>
-            </div>
+            <Link href="https://editado.xyz" className="group inline-flex items-center space-x-1">
+              <span className={`${ppNeueMontrealMedium.variable} font-medium text-[15px] text-gray-800 dark:text-white`}>
+                Editado
+              </span>
+              <span className={`${departureMono.variable} font-mono text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em]`}>
+                ↗
+              </span>
+            </Link>
+            <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
+              Editorial studio specializing in publishing and research.
+            </p>
           </div>
         </motion.div>
 
