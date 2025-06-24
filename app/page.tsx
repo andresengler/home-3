@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import {
   ppNeueMontrealRegular,
@@ -58,7 +58,7 @@ export default function Home() {
           >
             Building
           </h2>
-          <div className="space-y-3">
+          <div>
             <Link
               href="https://editado.xyz"
               className="group inline-flex items-center space-x-1"
