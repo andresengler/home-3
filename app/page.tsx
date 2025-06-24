@@ -36,7 +36,7 @@ export default function Home() {
     <>
       <TopFadeOverlay />
 
-      <div className="pt-20 space-y-16">
+      <div className="pt-20 space-y-10">
         {/* About */}
         <section className="space-y-4">
           <h2
