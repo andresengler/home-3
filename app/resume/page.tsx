@@ -118,7 +118,7 @@ export default function Resume() {
     <>
       <TopFadeOverlay />
 
-      <div className="pt-14 space-y-10">
+      <div className="pt-20 space-y-12">
         <div>
           <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
             Resume
@@ -128,9 +128,9 @@ export default function Resume() {
           </p>
         </div>
 
-        <div className="space-y-10">
+        <div className="space-y-8">
           {resumeData.map((section) => (
-            <section key={section.title} className="space-y-6">
+            <section key={section.title} className="space-y-4">
               <h3 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
                 {section.title}
               </h3>
@@ -151,7 +151,7 @@ export default function Resume() {
                   )}
                 </div>
               ) : section.title === 'Citations' ? (
-                <div className="space-y-1 mb-4">
+                <div className="space-y-1">
                   {section.items.map((item) => (
                     <Link key={item.href} href={item.href} className="group block">
                       <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-snug`}>
@@ -167,30 +167,7 @@ export default function Resume() {
                   ))}
                 </div>
               ) : (
-                <div className="space-y-6">
+                <div className="space-y-4">
                   {section.items.map((item, index) => (
-                    <div key={index} className="space-y-1 w-full">
-                      {item.date && (
-                        <p className={`${departureMono.variable} font-mono text-[12px] text-gray-500 dark:text-gray-400`}>
-                          {item.date}
-                        </p>
-                      )}
-                      <h4 className={`${ppNeueMontrealMedium.variable} font-medium text-[15px] text-gray-800 dark:text-white`}>
-                        {item.company}
-                      </h4>
-                      {item.role && (
-                        <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
-                          {item.role}
-                        </p>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </section>
-          ))}
-        </div>
-      </div>
-    </>
-  )
-}
+                    <div key={index}>
+                      {item.da
