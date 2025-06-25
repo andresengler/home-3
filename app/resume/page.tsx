@@ -131,10 +131,10 @@ export default function Resume() {
                   )}
                 </div>
               ) : section.title === 'Citations' ? (
-                <div className="space-y-[6px]">
+                <div className="space-y-3">
                   {section.items.map((item) => (
                     <Link key={item.href} href={item.href} className="group block">
-                      <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-relaxed`}>
+                      <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
                         <span className="text-gray-800 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
                           {item.content}
                         </span>
@@ -147,18 +147,22 @@ export default function Resume() {
                   ))}
                 </div>
               ) : (
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {section.items.map((item, index) => (
-                    <div key={index} className="space-y-1">
-                      <p className={`${departureMono.variable} font-mono text-[13px] text-[#8b7664]`}>
-                        {item.date}
-                      </p>
+                    <div key={index} className="space-y-[2px]">
+                      {item.date && (
+                        <p className={`${departureMono.variable} font-mono text-[12px] text-gray-500 dark:text-gray-400`}>
+                          {item.date}
+                        </p>
+                      )}
                       <h4 className={`${ppNeueMontrealMedium.variable} font-medium text-[15px] text-gray-800 dark:text-white`}>
                         {item.company}
                       </h4>
-                      <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300`}>
-                        {item.role}
-                      </p>
+                      {item.role && (
+                        <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300`}>
+                          {item.role}
+                        </p>
+                      )}
                     </div>
                   ))}
                 </div>
