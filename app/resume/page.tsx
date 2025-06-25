@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import {
   ppNeueMontrealRegular,
@@ -26,27 +26,7 @@ function TopFadeOverlay() {
         showOverlay ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      <div
-        className="w-full h-full bg-white dark:bg-black"
-        style={{
-          maskImage: `repeating-linear-gradient(
-            to bottom,
-            rgba(0,0,0,0.95) 0px,
-            rgba(0,0,0,0.95) 3px,
-            rgba(0,0,0,0.2) 3px,
-            rgba(0,0,0,0.2) 6px
-          )`,
-          WebkitMaskImage: `repeating-linear-gradient(
-            to bottom,
-            rgba(0,0,0,0.95) 0px,
-            rgba(0,0,0,0.95) 3px,
-            rgba(0,0,0,0.2) 3px,
-            rgba(0,0,0,0.2) 6px
-          )`,
-          maskSize: '100% 100%',
-          WebkitMaskSize: '100% 100%',
-        }}
-      />
+      <div className="w-full h-full bg-gradient-to-b from-white via-white/80 to-transparent dark:from-black dark:via-black/30" />
     </div>
   )
 }
@@ -118,17 +98,17 @@ export default function Resume() {
     <>
       <TopFadeOverlay />
 
-      <div className="pt-20 space-y-12">
-        <div>
+      <div className="pt-20 space-y-10">
+        <section className="space-y-4">
           <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
             Resume
           </h2>
-          <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed mt-4`}>
+          <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
             Presenting a resume might feel a bit outdated, but here's a more detailed profile of what I've been up to over the past ten years—a brief overview of the companies I've worked with, mentions in various publications, and more.
           </p>
-        </div>
+        </section>
 
-        <div className="space-y-8">
+        <div className="space-y-10">
           {resumeData.map((section) => (
             <section key={section.title} className="space-y-4">
               <h3 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
@@ -136,11 +116,11 @@ export default function Resume() {
               </h3>
 
               {section.title === 'Languages' ? (
-                <div className="flex items-center gap-12">
-                  {section.items.map((item, index) =>
+                <div className="flex flex-wrap gap-8">
+                  {section.items.map((item) =>
                     ['spanish', 'english'].map((lang) => (
                       <div key={lang}>
-                        <h4 className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-800 dark:text-white`}>
+                        <h4 className={`${ppNeueMontrealMedium.variable} font-medium text-[15px] text-gray-800 dark:text-white`}>
                           {item[lang].company}
                         </h4>
                         <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
@@ -154,7 +134,7 @@ export default function Resume() {
                 <div className="space-y-1">
                   {section.items.map((item) => (
                     <Link key={item.href} href={item.href} className="group block">
-                      <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-snug`}>
+                      <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-relaxed`}>
                         <span className="text-gray-800 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
                           {item.content}
                         </span>
@@ -169,5 +149,28 @@ export default function Resume() {
               ) : (
                 <div className="space-y-4">
                   {section.items.map((item, index) => (
-                    <div key={index}>
-                      {item.da
+                    <div key={index} className="space-y-1">
+                      {item.date && (
+                        <p className={`${departureMono.variable} font-mono text-[12px] text-gray-500 dark:text-gray-400`}>
+                          {item.date}
+                        </p>
+                      )}
+                      <h4 className={`${ppNeueMontrealMedium.variable} font-medium text-[15px] text-gray-800 dark:text-white`}>
+                        {item.company}
+                      </h4>
+                      {item.role && (
+                        <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
+                          {item.role}
+                        </p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </section>
+          ))}
+        </div>
+      </div>
+    </>
+  )
+}
