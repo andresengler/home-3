@@ -98,29 +98,29 @@ export default function Resume() {
     <>
       <TopFadeOverlay />
 
-      <div className="pt-20 space-y-10">
-        <section className="space-y-4">
+      <div className="pt-20 space-y-12">
+        <div>
           <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
             Resume
           </h2>
-          <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
+          <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed mt-4`}>
             Presenting a resume might feel a bit outdated, but here's a more detailed profile of what I've been up to over the past ten years—a brief overview of the companies I've worked with, mentions in various publications, and more.
           </p>
-        </section>
+        </div>
 
-        <div className="space-y-10">
+        <div className="space-y-12">
           {resumeData.map((section) => (
-            <section key={section.title} className="space-y-4">
+            <section key={section.title} className="space-y-6">
               <h3 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
                 {section.title}
               </h3>
 
               {section.title === 'Languages' ? (
-                <div className="flex flex-wrap gap-8">
-                  {section.items.map((item) =>
+                <div className="flex items-center gap-12">
+                  {section.items.map((item, index) =>
                     ['spanish', 'english'].map((lang) => (
                       <div key={lang}>
-                        <h4 className={`${ppNeueMontrealMedium.variable} font-medium text-[15px] text-gray-800 dark:text-white`}>
+                        <h4 className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-800 dark:text-white`}>
                           {item[lang].company}
                         </h4>
                         <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
@@ -131,7 +131,7 @@ export default function Resume() {
                   )}
                 </div>
               ) : section.title === 'Citations' ? (
-                <div className="space-y-1">
+                <div className="space-y-[2px] mb-4">
                   {section.items.map((item) => (
                     <Link key={item.href} href={item.href} className="group block">
                       <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-relaxed`}>
@@ -147,9 +147,9 @@ export default function Resume() {
                   ))}
                 </div>
               ) : (
-                <div className="space-y-4">
+                <div className="space-y-6">
                   {section.items.map((item, index) => (
-                    <div key={index} className="space-y-1">
+                    <div key={index} className="space-y-[2px] w-full">
                       {item.date && (
                         <p className={`${departureMono.variable} font-mono text-[12px] text-gray-500 dark:text-gray-400`}>
                           {item.date}
