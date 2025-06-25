@@ -1,11 +1,11 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import {
-  departureMono,
   ppNeueMontrealRegular,
+  departureMono,
 } from '@/app/fonts'
 
 function TopFadeOverlay() {
@@ -88,23 +88,28 @@ export default function Writings() {
     <>
       <TopFadeOverlay />
 
-      <div className="pt-20 space-y-10">
-        <section className="space-y-4">
+      <motion.div
+        initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
+        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+        transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
+        className="pt-20 space-y-10"
+      >
+        <div>
           <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
             Writings
           </h2>
-          <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
+          <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed mt-4`}>
             A curated selection of articles I've written in English and Spanish for various media outlets. While my recent focus has been on editing and refining others' work, I continue to seek out compelling stories to commission and, occasionally, write myself.
           </p>
-        </section>
+        </div>
 
-        <div className="space-y-10">
+        <div className="space-y-6">
           {writings.map((yearGroup) => (
-            <section key={yearGroup.year} className="space-y-3">
+            <div key={yearGroup.year} className="space-y-3">
               <h3 className={`${departureMono.variable} font-mono text-[12px] leading-[18px] font-normal tracking-tight text-gray-500 dark:text-gray-400`}>
                 {yearGroup.year}
               </h3>
-              <div className="space-y-1.5">
+              <div className="space-y-1">
                 {yearGroup.articles.map((article) => (
                   <motion.div
                     key={article.title}
@@ -120,7 +125,7 @@ export default function Writings() {
                       onMouseLeave={() => setHoveredArticle(null)}
                     >
                       <span
-                        className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] font-normal transition-all ${
+                        className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] font-normal leading-relaxed transition-all ${
                           hoveredArticle && hoveredArticle !== article.title
                             ? 'text-gray-400 dark:text-gray-600 blur-[0.5px]'
                             : 'text-gray-800 dark:text-white'
@@ -135,10 +140,10 @@ export default function Writings() {
                   </motion.div>
                 ))}
               </div>
-            </section>
+            </div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </>
   )
 }
