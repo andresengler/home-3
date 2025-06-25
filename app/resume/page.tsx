@@ -119,7 +119,7 @@ export default function Resume() {
                 <div className="flex items-center gap-12">
                   {section.items.map((item) =>
                     ['spanish', 'english'].map((lang) => (
-                      <div key={lang}>
+                      <div key={lang} className="space-y-1">
                         <h4 className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-800 dark:text-white`}>
                           {item[lang].company}
                         </h4>
@@ -131,7 +131,7 @@ export default function Resume() {
                   )}
                 </div>
               ) : section.title === 'Citations' ? (
-                <div className="space-y-[10px]">
+                <div className="space-y-2">
                   {section.items.map((item) => (
                     <Link key={item.href} href={item.href} className="group block">
                       <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-relaxed`}>
@@ -147,6 +147,26 @@ export default function Resume() {
                   ))}
                 </div>
               ) : (
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {section.items.map((item, index) => (
-                    <div key={index} cla
+                    <div key={index} className="space-y-1">
+                      <p className={`${departureMono.variable} font-mono text-[13px] text-gray-500 dark:text-gray-400`}>
+                        {item.date}
+                      </p>
+                      <p className={`${ppNeueMontrealMedium.variable} font-medium text-[15px] text-gray-800 dark:text-white`}>
+                        {item.company}
+                      </p>
+                      <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300`}>
+                        {item.role}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </section>
+          ))}
+        </div>
+      </div>
+    </>
+  )
+}
