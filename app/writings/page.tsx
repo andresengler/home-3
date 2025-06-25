@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import {
   departureMono,
   ppNeueMontrealRegular,
+  ppNeueMontrealMedium,
 } from '@/app/fonts'
 
 function TopFadeOverlay() {
@@ -103,35 +104,38 @@ export default function Writings() {
           </p>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-6">
           {writings.map((group) => (
-            <div key={group.year} className="space-y-3">
-              <h3 className={`${departureMono.variable} font-mono text-[12px] text-gray-500 dark:text-gray-400`}>
+            <section key={group.year} className="space-y-2">
+              <p className={`${departureMono.variable} font-mono text-[12px] text-gray-500 dark:text-gray-400`}>
                 {group.year}
-              </h3>
-              <div className="space-y-2">
-                {group.articles.map((article) => (
+              </p>
+              {group.articles.map((article) => (
+                <div key={article.title} className="space-y-1">
                   <Link
-                    key={article.title}
                     href={article.href}
                     className="group block"
                     onMouseEnter={() => setHoveredArticle(article.title)}
                     onMouseLeave={() => setHoveredArticle(null)}
                   >
-                    <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-relaxed transition-all ${
-                      hoveredArticle && hoveredArticle !== article.title
-                        ? 'text-gray-400 dark:text-gray-600 blur-[0.5px]'
-                        : 'text-gray-800 dark:text-white'
-                    }`}>
+                    <p
+                      className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] font-normal leading-relaxed transition-all ${
+                        hoveredArticle && hoveredArticle !== article.title
+                          ? 'text-gray-400 dark:text-gray-600 blur-[0.5px]'
+                          : 'text-gray-800 dark:text-white'
+                      }`}
+                    >
                       {article.title}
-                      <span className={`${departureMono.variable} font-mono text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em] ml-1`}>
+                      <span
+                        className={`${departureMono.variable} font-mono text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em] ml-1`}
+                      >
                         ↗
                       </span>
                     </p>
                   </Link>
-                ))}
-              </div>
-            </div>
+                </div>
+              ))}
+            </section>
           ))}
         </div>
       </motion.div>
