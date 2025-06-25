@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import {
   ppNeueMontrealRegular,
@@ -108,7 +108,7 @@ export default function Resume() {
           </p>
         </div>
 
-        <div className="space-y-12">
+        <div className="space-y-10">
           {resumeData.map((section) => (
             <section key={section.title} className="space-y-6">
               <h3 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
@@ -117,7 +117,7 @@ export default function Resume() {
 
               {section.title === 'Languages' ? (
                 <div className="flex items-center gap-12">
-                  {section.items.map((item, index) =>
+                  {section.items.map((item) =>
                     ['spanish', 'english'].map((lang) => (
                       <div key={lang}>
                         <h4 className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-800 dark:text-white`}>
@@ -131,7 +131,7 @@ export default function Resume() {
                   )}
                 </div>
               ) : section.title === 'Citations' ? (
-                <div className="space-y-[2px] mb-4">
+                <div className="space-y-[10px]">
                   {section.items.map((item) => (
                     <Link key={item.href} href={item.href} className="group block">
                       <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-relaxed`}>
@@ -147,30 +147,6 @@ export default function Resume() {
                   ))}
                 </div>
               ) : (
-                <div className="space-y-6">
+                <div className="space-y-4">
                   {section.items.map((item, index) => (
-                    <div key={index} className="space-y-[2px] w-full">
-                      {item.date && (
-                        <p className={`${departureMono.variable} font-mono text-[12px] text-gray-500 dark:text-gray-400`}>
-                          {item.date}
-                        </p>
-                      )}
-                      <h4 className={`${ppNeueMontrealMedium.variable} font-medium text-[15px] text-gray-800 dark:text-white`}>
-                        {item.company}
-                      </h4>
-                      {item.role && (
-                        <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
-                          {item.role}
-                        </p>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </section>
-          ))}
-        </div>
-      </div>
-    </>
-  )
-}
+                    <div key={index} cla
