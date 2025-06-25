@@ -1,12 +1,35 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import {
   departureMono,
   ppNeueMontrealRegular,
 } from '@/app/fonts'
+
+function TopFadeOverlay() {
+  const [showOverlay, setShowOverlay] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowOverlay(window.scrollY > 180)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  return (
+    <div
+      className={`pointer-events-none fixed top-0 left-0 right-0 z-30 h-28 transition-opacity duration-700 ${
+        showOverlay ? 'opacity-100' : 'opacity-0'
+      }`}
+    >
+      <div className="w-full h-full bg-gradient-to-b from-white via-white/80 to-transparent dark:from-black dark:via-black/30" />
+    </div>
+  )
+}
 
 const writings = [
   {
@@ -62,56 +85,60 @@ export default function Writings() {
   const [hoveredArticle, setHoveredArticle] = useState<string | null>(null)
 
   return (
-    <div className="pt-28 space-y-8">
-      <div>
-        <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
-          Writings
-        </h2>
-        <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed mt-4`}>
-          A curated selection of articles I've written in English and Spanish for various media outlets. While my recent focus has been on editing and refining others' work, I continue to seek out compelling stories to commission and, occasionally, write myself.
-        </p>
-      </div>
+    <>
+      <TopFadeOverlay />
 
-      <div className="space-y-6">
-        {writings.map((yearGroup) => (
-          <div key={yearGroup.year} className="space-y-3">
-            <h3 className={`${departureMono.variable} font-mono text-[12px] leading-[18px] font-normal tracking-tight text-gray-500 dark:text-gray-400`}>
-              {yearGroup.year}
-            </h3>
-            <div className="space-y-1.5">
-              {yearGroup.articles.map((article) => (
-                <motion.div
-                  key={article.title}
-                  initial={{ y: 0 }}
-                  whileHover={{ y: -2 }}
-                  whileTap={{ y: -2 }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 40 }}
-                >
-                  <Link
-                    href={article.href}
-                    className="group inline-flex items-center space-x-1"
-                    onMouseEnter={() => setHoveredArticle(article.title)}
-                    onMouseLeave={() => setHoveredArticle(null)}
+      <div className="pt-20 space-y-10">
+        <section className="space-y-4">
+          <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
+            Writings
+          </h2>
+          <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
+            A curated selection of articles I've written in English and Spanish for various media outlets. While my recent focus has been on editing and refining others' work, I continue to seek out compelling stories to commission and, occasionally, write myself.
+          </p>
+        </section>
+
+        <div className="space-y-10">
+          {writings.map((yearGroup) => (
+            <section key={yearGroup.year} className="space-y-3">
+              <h3 className={`${departureMono.variable} font-mono text-[12px] leading-[18px] font-normal tracking-tight text-gray-500 dark:text-gray-400`}>
+                {yearGroup.year}
+              </h3>
+              <div className="space-y-1.5">
+                {yearGroup.articles.map((article) => (
+                  <motion.div
+                    key={article.title}
+                    initial={{ y: 0 }}
+                    whileHover={{ y: -2 }}
+                    whileTap={{ y: -2 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 40 }}
                   >
-                    <span
-                      className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] font-normal transition-all ${
-                        hoveredArticle && hoveredArticle !== article.title
-                          ? 'text-gray-400 dark:text-gray-600 blur-[0.5px]'
-                          : 'text-gray-800 dark:text-white'
-                      }`}
+                    <Link
+                      href={article.href}
+                      className="group inline-flex items-center space-x-1"
+                      onMouseEnter={() => setHoveredArticle(article.title)}
+                      onMouseLeave={() => setHoveredArticle(null)}
                     >
-                      {article.title}
-                    </span>
-                    <span className={`${departureMono.variable} font-mono text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em]`}>
-                      ↗
-                    </span>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        ))}
+                      <span
+                        className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] font-normal transition-all ${
+                          hoveredArticle && hoveredArticle !== article.title
+                            ? 'text-gray-400 dark:text-gray-600 blur-[0.5px]'
+                            : 'text-gray-800 dark:text-white'
+                        }`}
+                      >
+                        {article.title}
+                      </span>
+                      <span className={`${departureMono.variable} font-mono text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em]`}>
+                        ↗
+                      </span>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   )
 }
