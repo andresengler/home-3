@@ -4,9 +4,32 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import {
-  ppNeueMontrealRegular,
   departureMono,
+  ppNeueMontrealRegular,
 } from '@/app/fonts'
+
+function TopFadeOverlay() {
+  const [showOverlay, setShowOverlay] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowOverlay(window.scrollY > 180)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  return (
+    <div
+      className={`pointer-events-none fixed top-0 left-0 right-0 z-30 h-28 transition-opacity duration-700 ${
+        showOverlay ? 'opacity-100' : 'opacity-0'
+      }`}
+    >
+      <div className="w-full h-full bg-gradient-to-b from-white via-white/80 to-transparent dark:from-black dark:via-black/30" />
+    </div>
+  )
+}
 
 const writings = [
   {
@@ -58,29 +81,6 @@ const writings = [
   },
 ]
 
-function TopFadeOverlay() {
-  const [showOverlay, setShowOverlay] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowOverlay(window.scrollY > 180)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  return (
-    <div
-      className={`pointer-events-none fixed top-0 left-0 right-0 z-30 h-28 transition-opacity duration-700 ${
-        showOverlay ? 'opacity-100' : 'opacity-0'
-      }`}
-    >
-      <div className="w-full h-full bg-gradient-to-b from-white via-white/80 to-transparent dark:from-black dark:via-black/30" />
-    </div>
-  )
-}
-
 export default function Writings() {
   const [hoveredArticle, setHoveredArticle] = useState<string | null>(null)
 
@@ -105,27 +105,24 @@ export default function Writings() {
 
         <div className="space-y-8">
           {writings.map((yearGroup) => (
-            <section key={yearGroup.year} className="space-y-3">
-              <p className={`${departureMono.variable} font-mono text-[12px] text-gray-500 dark:text-gray-400`}>
+            <section key={yearGroup.year} className="space-y-2">
+              <h3 className={`${departureMono.variable} font-mono text-[12px] font-normal tracking-tight text-gray-500 dark:text-gray-400`}>
                 {yearGroup.year}
-              </p>
-
-              <div className="space-y-3">
+              </h3>
+              <div className="space-y-1">
                 {yearGroup.articles.map((article) => (
-                  <div key={article.title} className="space-y-1">
+                  <div key={article.title}>
                     <Link
                       href={article.href}
                       className="group inline-flex items-center space-x-1"
                       onMouseEnter={() => setHoveredArticle(article.title)}
                       onMouseLeave={() => setHoveredArticle(null)}
                     >
-                      <span
-                        className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] font-normal leading-relaxed transition-all ${
-                          hoveredArticle && hoveredArticle !== article.title
-                            ? 'text-gray-400 dark:text-gray-600 blur-[0.5px]'
-                            : 'text-gray-800 dark:text-white'
-                        }`}
-                      >
+                      <span className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-relaxed transition-all ${
+                        hoveredArticle && hoveredArticle !== article.title
+                          ? 'text-gray-400 dark:text-gray-600 blur-[0.5px]'
+                          : 'text-gray-800 dark:text-white'
+                      }`}>
                         {article.title}
                       </span>
                       <span className={`${departureMono.variable} font-mono text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em]`}>
