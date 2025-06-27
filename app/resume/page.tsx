@@ -109,7 +109,7 @@ export default function Resume() {
           <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
             Resume
           </h2>
-          <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed mt-4`}>
+          <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-snug mt-4`}>
             Presenting a resume might feel a bit outdated, but here's a more detailed profile of what I've been up to over the past ten years—a brief overview of the companies I've worked with, mentions in various publications, and more.
           </p>
         </div>
@@ -129,7 +129,7 @@ export default function Resume() {
                         <h4 className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-800 dark:text-white`}>
                           {item[lang].company}
                         </h4>
-                        <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
+                        <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-snug`}>
                           {item[lang].role}
                         </p>
                       </div>
@@ -137,26 +137,28 @@ export default function Resume() {
                   )}
                 </div>
               ) : section.title === 'Citations' ? (
-                <motion.div
-                  initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
-                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                  transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
-                  className="space-y-1"
-                >
-                  {section.items.map((item) => (
-                    <Link key={item.href} href={item.href} className="group block">
-                      <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-snug text-gray-600 dark:text-gray-300`}>
-                        <span className="text-gray-800 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
-                          {item.content}
-                        </span>
-                        <span className="text-gray-600 dark:text-gray-300 italic">, {item.outlet}</span>
-                        <span className={`${departureMono.variable} font-mono text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em] ml-1`}>
-                          ↗
-                        </span>
-                      </p>
-                    </Link>
+                <div className="space-y-3">
+                  {section.items.map((item, i) => (
+                    <motion.div
+                      key={item.href}
+                      initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
+                      animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                      transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 + i * 0.1 }}
+                    >
+                      <Link href={item.href} className="group block">
+                        <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-snug`}>
+                          <span className="text-gray-800 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
+                            {item.content}
+                          </span>
+                          <span className="text-gray-600 dark:text-gray-300 italic">, {item.outlet}</span>
+                          <span className={`${departureMono.variable} font-mono text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em] ml-1`}>
+                            ↗
+                          </span>
+                        </p>
+                      </Link>
+                    </motion.div>
                   ))}
-                </motion.div>
+                </div>
               ) : (
                 <div className="space-y-4">
                   {section.items.map((item, index) => (
@@ -170,7 +172,7 @@ export default function Resume() {
                         {item.company}
                       </h4>
                       {item.role && (
-                        <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
+                        <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-snug`}>
                           {item.role}
                         </p>
                       )}
