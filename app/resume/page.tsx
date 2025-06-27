@@ -109,7 +109,7 @@ export default function Resume() {
           <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
             Resume
           </h2>
-          <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed mt-4`}>
+          <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-snug mt-4`}>
             Presenting a resume might feel a bit outdated, but here's a more detailed profile of what I've been up to over the past ten years—a brief overview of the companies I've worked with, mentions in various publications, and more.
           </p>
         </div>
@@ -125,11 +125,11 @@ export default function Resume() {
                 <div className="flex items-center gap-12">
                   {section.items.map((item) =>
                     ['spanish', 'english'].map((lang) => (
-                      <div key={lang}>
+                      <div key={lang} className="space-y-0.5">
                         <h4 className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-800 dark:text-white`}>
                           {item[lang].company}
                         </h4>
-                        <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
+                        <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-snug`}>
                           {item[lang].role}
                         </p>
                       </div>
@@ -142,11 +142,11 @@ export default function Resume() {
                   whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                   transition={{ duration: 0.8, ease: 'easeOut' }}
                   viewport={{ once: true }}
-                  className="space-y-1.5"
+                  className="space-y-0.5"
                 >
                   {section.items.map((item) => (
                     <Link key={item.href} href={item.href} className="group block">
-                      <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
+                      <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-snug`}>
                         <span className="text-gray-800 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
                           {item.content}
                         </span>
@@ -159,7 +159,7 @@ export default function Resume() {
                   ))}
                 </motion.div>
               ) : (
-                <div className="space-y-4">
+                <div className="space-y-2">
                   {section.items.map((item, index) => (
                     <div key={index} className="space-y-0.5">
                       {item.date && (
@@ -171,7 +171,7 @@ export default function Resume() {
                         {item.company}
                       </h4>
                       {item.role && (
-                        <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
+                        <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-snug`}>
                           {item.role}
                         </p>
                       )}
