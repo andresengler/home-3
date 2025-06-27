@@ -137,10 +137,15 @@ export default function Resume() {
                   )}
                 </div>
               ) : section.title === 'Citations' ? (
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
+                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                  transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
+                  className="space-y-1"
+                >
                   {section.items.map((item) => (
                     <Link key={item.href} href={item.href} className="group block">
-                      <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-snug`}>
+                      <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-snug text-gray-600 dark:text-gray-300`}>
                         <span className="text-gray-800 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
                           {item.content}
                         </span>
@@ -151,7 +156,7 @@ export default function Resume() {
                       </p>
                     </Link>
                   ))}
-                </div>
+                </motion.div>
               ) : (
                 <div className="space-y-4">
                   {section.items.map((item, index) => (
