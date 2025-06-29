@@ -102,7 +102,7 @@ export default function Resume() {
         initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
         animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
         transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
-        className="pt-20 space-y-12"
+        className="pt-20 space-y-8"
       >
         <div>
           <h2
@@ -113,13 +113,11 @@ export default function Resume() {
           <p
             className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-snug mt-4`}
           >
-            Presenting a resume might feel a bit outdated, but here's a more detailed
-            profile of what I've been up to over the past ten years — a brief overview
-            of the companies I've worked with, mentions in various publications, and more.
+            Presenting a resume might feel a bit outdated, but here's a more detailed profile of what I've been up to over the past ten years — a brief overview of the companies I've worked with, mentions in various publications, and more.
           </p>
         </div>
 
-        <div className="space-y-10">
+        <div className="space-y-8">
           {resumeData.map((section) => (
             <section key={section.title} className="space-y-4">
               <h3
@@ -148,7 +146,7 @@ export default function Resume() {
                   )}
                 </div>
               ) : section.title === 'Citations' ? (
-                <div className="space-y-2">
+                <div className="space-y-0.5">
                   {section.items.map((item) => (
                     <Link key={item.href} href={item.href} className="group block">
                       <p
