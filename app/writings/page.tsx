@@ -100,27 +100,30 @@ export default function Writings() {
           <p
             className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-snug`}
           >
-            A curated selection of articles I’ve written in English and Spanish for various media outlets. While my recent focus has been on editing and refining others' work, I continue to seek out compelling stories to commission and, occasionally, write myself.
+            A curated selection of articles I've written in English and Spanish
+            for various media outlets. While my recent focus has been on editing
+            and refining others' work, I continue to seek out compelling stories
+            to commission and, occasionally, write myself.
           </p>
         </div>
 
         <div className="space-y-8">
-          {writings.map((group) => (
-            <section key={group.year} className="space-y-4">
+          {writings.map((yearGroup) => (
+            <section key={yearGroup.year} className="space-y-2">
               <h3
                 className={`${departureMono.variable} font-mono text-[12px] font-normal tracking-tight text-gray-500 dark:text-gray-400`}
               >
-                {group.year}
+                {yearGroup.year}
               </h3>
               <div className="space-y-0.5">
-                {group.articles.map((article) => (
+                {yearGroup.articles.map((article) => (
                   <Link
-                    key={article.href}
+                    key={article.title}
                     href={article.href}
                     className="group block"
                   >
                     <p
-                      className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-800 dark:text-white leading-snug transition-colors hover:text-gray-600 dark:hover:text-gray-300`}
+                      className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-snug text-gray-800 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors`}
                     >
                       {article.title}
                       <span
