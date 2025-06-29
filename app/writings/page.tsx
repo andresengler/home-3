@@ -86,9 +86,8 @@ export default function Writings() {
         initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
         animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
         transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
-        className="pt-20 space-y-12"
+        className="pt-20 space-y-8"
       >
-        {/* encabezado */}
         <div className="space-y-4">
           <h2
             className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}
@@ -102,10 +101,9 @@ export default function Writings() {
           </p>
         </div>
 
-        {/* listado */}
-        <div className="space-y-8">
+        <div className="space-y-6">
           {writings.map((yearGroup) => (
-            <section key={yearGroup.year} className="space-y-2">
+            <section key={yearGroup.year} className="space-y-4">
               <h3
                 className={`${departureMono.variable} font-mono text-[12px] font-normal tracking-tight text-gray-500 dark:text-gray-400`}
               >
@@ -113,23 +111,22 @@ export default function Writings() {
               </h3>
               <div className="space-y-0.5">
                 {yearGroup.articles.map((article) => (
-                  <div key={article.title}>
-                    <Link
-                      href={article.href}
-                      className="inline-flex items-center space-x-1"
+                  <Link
+                    key={article.title}
+                    href={article.href}
+                    className="group inline-flex items-center space-x-1"
+                  >
+                    <span
+                      className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-800 dark:text-white leading-snug transition-colors`}
                     >
-                      <span
-                        className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-snug text-gray-800 dark:text-white`}
-                      >
-                        {article.title}
-                      </span>
-                      <span
-                        className={`${departureMono.variable} font-mono text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em]`}
-                      >
-                        ↗
-                      </span>
-                    </Link>
-                  </div>
+                      {article.title}
+                    </span>
+                    <span
+                      className={`${departureMono.variable} font-mono text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em]`}
+                    >
+                      ↗
+                    </span>
+                  </Link>
                 ))}
               </div>
             </section>
