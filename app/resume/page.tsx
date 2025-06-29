@@ -16,7 +16,6 @@ function TopFadeOverlay() {
     const handleScroll = () => {
       setShowOverlay(window.scrollY > 180)
     }
-
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -116,7 +115,7 @@ export default function Resume() {
 
         <div className="space-y-10">
           {resumeData.map((section) => (
-            <section key={section.title} className="space-y-6">
+            <section key={section.title} className="space-y-4">
               <h3 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
                 {section.title}
               </h3>
@@ -137,13 +136,7 @@ export default function Resume() {
                   )}
                 </div>
               ) : section.title === 'Citations' ? (
-                <motion.div
-                  initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
-                  whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                  transition={{ duration: 0.8, ease: 'easeOut' }}
-                  viewport={{ once: true }}
-                  className="space-y-0.5"
-                >
+                <div className="space-y-0.5">
                   {section.items.map((item) => (
                     <Link key={item.href} href={item.href} className="group block">
                       <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-snug`}>
@@ -157,7 +150,7 @@ export default function Resume() {
                       </p>
                     </Link>
                   ))}
-                </motion.div>
+                </div>
               ) : (
                 <div className="space-y-2">
                   {section.items.map((item, index) => (
