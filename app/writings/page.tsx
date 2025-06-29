@@ -94,18 +94,24 @@ export default function Writings() {
         className="pt-20 space-y-12"
       >
         <div className="space-y-4">
-          <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
+          <h2
+            className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}
+          >
             Writings
           </h2>
-          <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-snug`}>
+          <p
+            className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-snug`}
+          >
             A curated selection of articles I've written in English and Spanish for various media outlets. While my recent focus has been on editing and refining others' work, I continue to seek out compelling stories to commission and, occasionally, write myself.
           </p>
         </div>
 
         <div className="space-y-8">
           {writings.map((yearGroup) => (
-            <section key={yearGroup.year} className="space-y-2">
-              <h3 className={`${departureMono.variable} font-mono text-[12px] font-normal tracking-tight text-gray-500 dark:text-gray-400`}>
+            <section key={yearGroup.year} className="space-y-1">
+              <h3
+                className={`${departureMono.variable} font-mono text-[12px] font-normal tracking-tight text-gray-500 dark:text-gray-400 mb-1`}
+              >
                 {yearGroup.year}
               </h3>
               <div className="space-y-0.5">
