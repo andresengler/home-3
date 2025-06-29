@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import {
-  departureMono,
   ppNeueMontrealRegular,
   ppNeueMontrealMedium,
+  departureMono,
 } from '@/app/fonts'
 
 function TopFadeOverlay() {
@@ -40,7 +40,7 @@ export default function Home() {
         initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
         animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
         transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
-        className="pt-20 space-y-12"
+        className="pt-20 space-y-8"
       >
         {/* About */}
         <section className="space-y-4">
@@ -63,7 +63,7 @@ export default function Home() {
           >
             Building
           </h2>
-          <div>
+          <div className="space-y-0.5">
             <Link
               href="https://editado.xyz"
               className="group inline-flex items-center space-x-1"
@@ -94,11 +94,11 @@ export default function Home() {
           >
             Now
           </h2>
-          <div className="space-y-3">
+          <div className="space-y-2">
             <p
               className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-snug`}
             >
-              With Editado, I work with a diverse range of clients—including media companies, investment funds, and startups—to conceptualize and create media products such as digital magazines, podcasts, events, and newsletters, while also helping independent authors monetize their work.
+              With Editado, I work with a diverse range of clients — including media companies, investment funds, and startups — to conceptualize and create media products such as digital magazines, podcasts, events, and newsletters, while also helping independent authors monetize their work.
             </p>
             <p
               className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-snug`}
@@ -109,7 +109,7 @@ export default function Home() {
         </section>
 
         {/* Contact */}
-        <section className="space-y-4 pb-32">
+        <section className="space-y-4">
           <h2
             className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}
           >
