@@ -3,10 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import {
-  departureMono,
-  ppNeueMontrealRegular,
-} from '@/app/fonts'
+import { departureMono, ppNeueMontrealRegular } from '@/app/fonts'
 
 function TopFadeOverlay() {
   const [showOverlay, setShowOverlay] = useState(false)
@@ -89,24 +86,32 @@ export default function Writings() {
         initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
         animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
         transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
-        className="pt-20 space-y-12"
+        className="pt-20 space-y-10"
       >
+        {/* Intro */}
         <div className="space-y-4">
-          <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
+          <h2
+            className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}
+          >
             Writings
           </h2>
-          <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-snug text-gray-600 dark:text-gray-300`}>
-            A curated selection of articles I've written in English and Spanish for various media outlets. While my recent focus has been on editing and refining others' work, I continue to seek out compelling stories to commission and, occasionally, write myself.
+          <p
+            className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-snug`}
+          >
+            A curated selection of articles I've written in English and Spanish
+            for various media outlets. While my recent focus has been on editing
+            and refining others' work, I continue to seek out compelling stories
+            to commission and, occasionally, write myself.
           </p>
         </div>
 
-        <div className="space-y-2.5">
-          {writings.map((yearGroup, index) => (
-            <section
-              key={yearGroup.year}
-              className={`${index === 0 ? 'mt-2' : ''} space-y-0.5`}
-            >
-              <h3 className={`${departureMono.variable} font-mono text-[12px] font-normal tracking-tight text-gray-500 dark:text-gray-400`}>
+        {/* Articles */}
+        <div className="space-y-3">
+          {writings.map((yearGroup) => (
+            <section key={yearGroup.year} className="space-y-0.5">
+              <h3
+                className={`${departureMono.variable} font-mono text-[12px] font-normal tracking-tight text-gray-500 dark:text-gray-400`}
+              >
                 {yearGroup.year}
               </h3>
               <div className="space-y-0.5">
@@ -116,10 +121,14 @@ export default function Writings() {
                     href={article.href}
                     className="group inline-flex items-center space-x-1"
                   >
-                    <span className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-snug text-gray-800 dark:text-white`}>
+                    <span
+                      className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-800 dark:text-white transition-colors`}
+                    >
                       {article.title}
                     </span>
-                    <span className={`${departureMono.variable} font-mono text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em]`}>
+                    <span
+                      className={`${departureMono.variable} font-mono text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em]`}
+                    >
                       ↗
                     </span>
                   </Link>
