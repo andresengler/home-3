@@ -4,18 +4,22 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import {
-  departureMono,
   ppNeueMontrealRegular,
   ppNeueMontrealMedium,
+  departureMono,
 } from '@/app/fonts'
 
 function TopFadeOverlay() {
   const [showOverlay, setShowOverlay] = useState(false)
+
   useEffect(() => {
-    const handleScroll = () => setShowOverlay(window.scrollY > 180)
+    const handleScroll = () => {
+      setShowOverlay(window.scrollY > 180)
+    }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
   return (
     <div
       className={`pointer-events-none fixed top-0 left-0 right-0 z-30 h-28 transition-opacity duration-700 ${
@@ -39,29 +43,29 @@ export default function Home() {
       >
         {/* About */}
         <section className="space-y-4">
-          <h2 className={`${departureMono.variable} font-mono text-[14px] text-[#8b7664]`}>
+          <h2 className={`${departureMono.variable} font-mono text-[14px] tracking-tight text-[#8b7664]`}>
             About
           </h2>
-          <p className={`${ppNeueMontrealRegular.variable} text-[15px] leading-relaxed`}>
+          <p className="font-sans text-[15px] leading-snug text-gray-600 dark:text-gray-300">
             I’m an entrepreneur and editor based in Buenos Aires, Argentina, with a special interest in content, design systems (including typefaces and grids), and Bitcoin. After more than a decade in the media industry, I now focus on exploring new storytelling formats, designing aesthetically refined interfaces, and reimagining monetization strategies—among other pursuits.
           </p>
         </section>
 
         {/* Building */}
         <section className="space-y-4">
-          <h2 className={`${departureMono.variable} font-mono text-[14px] text-[#8b7664]`}>
+          <h2 className={`${departureMono.variable} font-mono text-[14px] tracking-tight text-[#8b7664]`}>
             Building
           </h2>
-          <div>
+          <div className="space-y-1">
             <Link href="https://editado.xyz" className="group inline-flex items-center space-x-1">
-              <span className={`${ppNeueMontrealMedium.variable} text-[15px]`}>
+              <span className="font-medium text-[15px] text-gray-800 dark:text-white">
                 Editado
               </span>
-              <span className="text-[0.7em] opacity-0 group-hover:opacity-100 transition-opacity">
+              <span className="font-mono text-gray-400 dark:text-gray-500 text-[0.7em] opacity-0 group-hover:opacity-100 transition-opacity">
                 ↗
               </span>
             </Link>
-            <p className="text-[15px] leading-relaxed">
+            <p className="font-sans text-[15px] leading-snug text-gray-600 dark:text-gray-300">
               Editorial studio specializing in publishing and research.
             </p>
           </div>
@@ -69,14 +73,14 @@ export default function Home() {
 
         {/* Now */}
         <section className="space-y-4">
-          <h2 className={`${departureMono.variable} font-mono text-[14px] text-[#8b7664]`}>
+          <h2 className={`${departureMono.variable} font-mono text-[14px] tracking-tight text-[#8b7664]`}>
             Now
           </h2>
-          <div className="space-y-3">
-            <p className="text-[15px] leading-relaxed">
+          <div className="space-y-2">
+            <p className="font-sans text-[15px] leading-snug text-gray-600 dark:text-gray-300">
               With Editado, I work with a diverse range of clients—including media companies, investment funds, and startups—to conceptualize and create media products such as digital magazines, podcasts, events, and newsletters, while also helping independent authors monetize their work.
             </p>
-            <p className="text-[15px] leading-relaxed">
+            <p className="font-sans text-[15px] leading-snug text-gray-600 dark:text-gray-300">
               Lately, I’ve been diving deeper into design. What began as a curiosity about typefaces has evolved into designing interfaces for various platforms. This journey has also sparked my interest in coding, as I strive to create beautiful, functional products from scratch. This website is one of the attempts.
             </p>
           </div>
@@ -84,10 +88,10 @@ export default function Home() {
 
         {/* Contact */}
         <section className="space-y-4">
-          <h2 className={`${departureMono.variable} font-mono text-[14px] text-[#8b7664]`}>
+          <h2 className={`${departureMono.variable} font-mono text-[14px] tracking-tight text-[#8b7664]`}>
             Contact
           </h2>
-          <p className="text-[15px] leading-relaxed">
+          <p className="font-sans text-[15px] leading-snug text-gray-600 dark:text-gray-300">
             You can reach me at andres@editado.xyz.
           </p>
         </section>
