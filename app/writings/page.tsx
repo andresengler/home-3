@@ -15,7 +15,6 @@ function TopFadeOverlay() {
     const handleScroll = () => {
       setShowOverlay(window.scrollY > 180)
     }
-
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -82,8 +81,6 @@ const writings = [
 ]
 
 export default function Writings() {
-  const [hoveredArticle, setHoveredArticle] = useState<string | null>(null)
-
   return (
     <>
       <TopFadeOverlay />
@@ -98,7 +95,7 @@ export default function Writings() {
           <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
             Writings
           </h2>
-          <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed`}>
+          <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-snug`}>
             A curated selection of articles I've written in English and Spanish for various media outlets. While my recent focus has been on editing and refining others' work, I continue to seek out compelling stories to commission and, occasionally, write myself.
           </p>
         </div>
@@ -109,20 +106,14 @@ export default function Writings() {
               <h3 className={`${departureMono.variable} font-mono text-[12px] font-normal tracking-tight text-gray-500 dark:text-gray-400`}>
                 {yearGroup.year}
               </h3>
-              <div className="space-y-1">
+              <div className="space-y-0.5">
                 {yearGroup.articles.map((article) => (
                   <div key={article.title}>
                     <Link
                       href={article.href}
                       className="group inline-flex items-center space-x-1"
-                      onMouseEnter={() => setHoveredArticle(article.title)}
-                      onMouseLeave={() => setHoveredArticle(null)}
                     >
-                      <span className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-relaxed transition-all ${
-                        hoveredArticle && hoveredArticle !== article.title
-                          ? 'text-gray-400 dark:text-gray-600 blur-[0.5px]'
-                          : 'text-gray-800 dark:text-white'
-                      }`}>
+                      <span className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-snug text-gray-800 dark:text-white transition-colors group-hover:text-gray-600 dark:group-hover:text-gray-300`}>
                         {article.title}
                       </span>
                       <span className={`${departureMono.variable} font-mono text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em]`}>
