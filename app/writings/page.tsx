@@ -100,9 +100,9 @@ export default function Writings() {
           </p>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-2">
           {writings.map((yearGroup) => (
-            <section key={yearGroup.year} className="space-y-2">
+            <section key={yearGroup.year} className="space-y-0.5">
               <h3 className={`${departureMono.variable} font-mono text-[12px] font-normal tracking-tight text-gray-500 dark:text-gray-400`}>
                 {yearGroup.year}
               </h3>
