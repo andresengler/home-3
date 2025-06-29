@@ -3,10 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import {
-  departureMono,
-  ppNeueMontrealRegular,
-} from '@/app/fonts'
+import { departureMono, ppNeueMontrealRegular } from '@/app/fonts'
 
 function TopFadeOverlay() {
   const [showOverlay, setShowOverlay] = useState(false)
@@ -81,8 +78,6 @@ const writings = [
 ]
 
 export default function Writings() {
-  const [hoveredArticle, setHoveredArticle] = useState<string | null>(null)
-
   return (
     <>
       <TopFadeOverlay />
@@ -93,6 +88,7 @@ export default function Writings() {
         transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
         className="pt-20 space-y-12"
       >
+        {/* encabezado */}
         <div className="space-y-4">
           <h2
             className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}
@@ -106,29 +102,24 @@ export default function Writings() {
           </p>
         </div>
 
+        {/* listado */}
         <div className="space-y-8">
           {writings.map((yearGroup) => (
-            <section key={yearGroup.year} className="space-y-1">
+            <section key={yearGroup.year} className="space-y-2">
               <h3
-                className={`${departureMono.variable} font-mono text-[12px] font-normal tracking-tight text-gray-500 dark:text-gray-400 mb-1`}
+                className={`${departureMono.variable} font-mono text-[12px] font-normal tracking-tight text-gray-500 dark:text-gray-400`}
               >
                 {yearGroup.year}
               </h3>
               <div className="space-y-0.5">
                 {yearGroup.articles.map((article) => (
-                  <div key={article.title} className="space-y-0.5">
+                  <div key={article.title}>
                     <Link
                       href={article.href}
-                      className="group inline-flex items-center space-x-1"
-                      onMouseEnter={() => setHoveredArticle(article.title)}
-                      onMouseLeave={() => setHoveredArticle(null)}
+                      className="inline-flex items-center space-x-1"
                     >
                       <span
-                        className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-snug transition-all ${
-                          hoveredArticle && hoveredArticle !== article.title
-                            ? 'text-gray-400 dark:text-gray-600 blur-[0.5px]'
-                            : 'text-gray-800 dark:text-white'
-                        }`}
+                        className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-snug text-gray-800 dark:text-white`}
                       >
                         {article.title}
                       </span>
