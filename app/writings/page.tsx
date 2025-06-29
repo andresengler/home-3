@@ -95,14 +95,17 @@ export default function Writings() {
           <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
             Writings
           </h2>
-          <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-snug`}>
+          <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-snug text-gray-600 dark:text-gray-300`}>
             A curated selection of articles I've written in English and Spanish for various media outlets. While my recent focus has been on editing and refining others' work, I continue to seek out compelling stories to commission and, occasionally, write myself.
           </p>
         </div>
 
-        <div className="space-y-3">
-          {writings.map((yearGroup) => (
-            <section key={yearGroup.year} className="space-y-0.5">
+        <div className="space-y-2.5">
+          {writings.map((yearGroup, index) => (
+            <section
+              key={yearGroup.year}
+              className={`space-y-0.5 ${index === 0 ? 'mt-4' : ''}`}
+            >
               <h3 className={`${departureMono.variable} font-mono text-[12px] font-normal tracking-tight text-gray-500 dark:text-gray-400`}>
                 {yearGroup.year}
               </h3>
@@ -113,7 +116,7 @@ export default function Writings() {
                     href={article.href}
                     className="group inline-flex items-center space-x-1"
                   >
-                    <span className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-snug text-gray-800 dark:text-white transition-all`}>
+                    <span className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-snug text-gray-800 dark:text-white`}>
                       {article.title}
                     </span>
                     <span className={`${departureMono.variable} font-mono text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em]`}>
