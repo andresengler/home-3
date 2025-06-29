@@ -104,7 +104,7 @@ export default function Writings() {
           {writings.map((yearGroup, index) => (
             <section
               key={yearGroup.year}
-              className={`space-y-0.5 ${index === 0 ? 'mt-4' : ''}`}
+              className={`${index === 0 ? 'mt-4' : ''} space-y-0.5`}
             >
               <h3 className={`${departureMono.variable} font-mono text-[12px] font-normal tracking-tight text-gray-500 dark:text-gray-400`}>
                 {yearGroup.year}
