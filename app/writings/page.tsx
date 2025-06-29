@@ -70,7 +70,7 @@ const writings = [
       },
       {
         title: 'Servicios de exportación: un negocio de US$6000 millones que la Argentina puede perder con sus vecinos',
-        href: 'https://www.lanacion.com.ar/economia/servicios-exportacion-negocio-us6000-millones-argentina-puede-nid2329686/',
+        href: 'https://www.lanacion.com.ar/economia/servicios-exportacion-negocio-us6000-millones-argentina-puede-nid2329686//',
       },
       {
         title: 'Futuros unicornios: las próximas compañías argentinas de más de US$1000 millones',
@@ -89,18 +89,18 @@ export default function Writings() {
         initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
         animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
         transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
-        className="pt-20 space-y-8"
+        className="pt-20 space-y-12"
       >
         <div className="space-y-4">
           <h2 className={`${departureMono.variable} font-mono text-[14px] font-normal tracking-tight text-[#8b7664]`}>
             Writings
           </h2>
-          <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-snug text-gray-600 dark:text-gray-300`}>
+          <p className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-snug`}>
             A curated selection of articles I've written in English and Spanish for various media outlets. While my recent focus has been on editing and refining others' work, I continue to seek out compelling stories to commission and, occasionally, write myself.
           </p>
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-3">
           {writings.map((yearGroup) => (
             <section key={yearGroup.year} className="space-y-0.5">
               <h3 className={`${departureMono.variable} font-mono text-[12px] font-normal tracking-tight text-gray-500 dark:text-gray-400`}>
@@ -108,19 +108,18 @@ export default function Writings() {
               </h3>
               <div className="space-y-0.5">
                 {yearGroup.articles.map((article) => (
-                  <div key={article.title}>
-                    <Link
-                      href={article.href}
-                      className="group inline-flex items-center space-x-1"
-                    >
-                      <span className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-snug text-gray-800 dark:text-white`}>
-                        {article.title}
-                      </span>
-                      <span className={`${departureMono.variable} font-mono text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em]`}>
-                        ↗
-                      </span>
-                    </Link>
-                  </div>
+                  <Link
+                    key={article.title}
+                    href={article.href}
+                    className="group inline-flex items-center space-x-1"
+                  >
+                    <span className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] leading-snug text-gray-800 dark:text-white transition-all`}>
+                      {article.title}
+                    </span>
+                    <span className={`${departureMono.variable} font-mono text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity text-[0.7em]`}>
+                      ↗
+                    </span>
+                  </Link>
                 ))}
               </div>
             </section>
