@@ -94,7 +94,7 @@ export default function Writings() {
         initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
         animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
         transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
-        className="pt-20 space-y-6"
+        className="pt-20 space-y-8"
       >
         <div className="space-y-4">
           <h2
@@ -112,15 +112,15 @@ export default function Writings() {
           </p>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-5">
           {writings.map((yearGroup) => (
-            <section key={yearGroup.year} className="space-y-2.5">
+            <section key={yearGroup.year} className="space-y-1.5">
               <h3
                 className={`${departureMono.variable} font-mono text-[12px] font-normal tracking-tight text-gray-500 dark:text-gray-400`}
               >
                 {yearGroup.year}
               </h3>
-              <div className="space-y-0.5">
+              <div className="space-y-1">
                 {yearGroup.articles.map((article) => (
                   <div key={article.title}>
                     <Link
