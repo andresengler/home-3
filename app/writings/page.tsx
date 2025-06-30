@@ -114,7 +114,7 @@ export default function Writings() {
 
         <div className="space-y-5">
           {writings.map((yearGroup) => (
-            <section key={yearGroup.year} className="space-y-1.5">
+            <section key={yearGroup.year} className="space-y-0.5">
               <h3
                 className={`${departureMono.variable} font-mono text-[12px] font-normal tracking-tight text-gray-500 dark:text-gray-400`}
               >
