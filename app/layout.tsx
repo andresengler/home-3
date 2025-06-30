@@ -12,10 +12,7 @@ import {
 export const metadata = {
   title: 'Andrés Engler',
   icons: {
-    icon: [
-      { url: '/ae-black.svg', media: '(prefers-color-scheme: light)' },
-      { url: '/ae-white.svg', media: '(prefers-color-scheme: dark)' },
-    ],
+    icon: '/ae-white.svg',
   },
 }
 
