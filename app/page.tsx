@@ -52,7 +52,7 @@ export default function Home() {
           <p
             className={`${ppNeueMontrealRegular.variable} font-sans text-[15px] text-gray-600 dark:text-gray-300 leading-snug`}
           >
-            I’m an entrepreneur and editor based in Buenos Aires, Argentina, with a special interest in content, design systems (including typefaces and grids), and Bitcoin. After more than a decade in the media industry, I now focus on exploring new storytelling formats, designing aesthetically refined interfaces, and reimagining monetization strategies—among other pursuits.
+            I’m an entrepreneur and editor based in Buenos Aires, Argentina, with a special interest in content, design systems, and different forms of decentralization. After more than a decade in the media industry, I now focus on exploring new storytelling formats, designing aesthetically refined interfaces, and reimagining monetization strategies—among other pursuits.
           </p>
         </section>
 
