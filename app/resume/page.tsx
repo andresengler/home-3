@@ -49,7 +49,7 @@ const resumeData = [
       {
         date: '2010 - 2014',
         company: 'Catholic University of Argentina',
-        role: "Bachelor's Degree in Journalism",
+        role: "Bachelor's degree in journalism",
       },
     ],
   },
