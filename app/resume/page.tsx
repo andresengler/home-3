@@ -35,6 +35,7 @@ const resumeData = [
   {
     title: 'Work Experience',
     items: [
+      { date: '7/24 - Now', company: 'CoinDesk', role: 'International content manager' },
       { date: '9/23 - Now', company: 'Editado', role: 'Founder' },
       { date: '6/21 - 8/23', company: 'CoinDesk', role: 'Editor of content and strategy, Latin America' },
       { date: '1/20 - 6/21', company: 'La Nación', role: 'Features writer' },
